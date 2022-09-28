@@ -36,8 +36,10 @@ export default function Demo() {
                 </Box>
             </Box>
             <Box pos="relative"><DemoMidSec /></Box>
+            <Box pos="relative">
+                <DemoBottomSec />
+            </Box>
 
-            <DemoBottomSec />
         </>
 
     );

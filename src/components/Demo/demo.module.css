@@ -25,3 +25,50 @@
     position: absolute;
     background-size: cover;
 }
+.icon4{
+    /* border: 2px solid red; */
+    position: absolute;
+    background-size: cover;
+    z-index: -10;
+    left: 60px;
+    bottom: -200px;
+    width: 25%;
+}
+.icon5{
+/* border: 1px solid red; */
+position: absolute;
+background-size: cover;
+z-index: -10;
+right:0px;
+bottom: 100px;
+}
+.icon6{
+/* border: 1px solid red; */
+position: absolute;
+background-size: cover;
+z-index: -10;
+top: 300px;
+left: 350px;
+}
+.icon7{
+    /* border: 1px solid red; */
+    position: absolute;
+        background-size: cover;
+        z-index: -10;
+        top: 460px;
+        right: 526px;
+        height: 40%;
+        width:280px;
+        /* width: 600px; */
+}
+
+@media only screen and (max-width: 400px) {
+    .icon1,.icon2,.icon3,.icon4,.icon5,.icon6,.icon7{
+        display: none;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .icon1,.icon2,.icon3,.icon4,.icon5,.icon6,.icon7{
+        display: none;
+    }
+}
