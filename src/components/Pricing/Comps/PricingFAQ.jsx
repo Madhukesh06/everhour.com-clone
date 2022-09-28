@@ -10,7 +10,7 @@ import {
   Flex,
   Text,
 } from "@chakra-ui/react";
-import "../Pricing.module.css";
+import styles from "../Pricing.module.css";
 
 const PricingFAQ = () => {
   return (
@@ -21,7 +21,7 @@ const PricingFAQ = () => {
     justifyContent="space-around"
     gap="70px"
   >
-    <Box className="Left_side">
+    <Box className={styles.Left_side}>
       <Text fontSize="4xl">Your questions. Answered!</Text>
       <Text>
         Here is a list of the most frequently asked questions. Got <br />
@@ -34,8 +34,8 @@ const PricingFAQ = () => {
         />
       </Box>
     </Box>
-    <Box className="accordian_temp">
-      <Box className="tobeShown">
+    <Box className={styles.accordian_temp}>
+      <Box className={styles.tobeShown}>
       <Text fontSize="4xl">Your questions. Answered!</Text>
       </Box>
       <Accordion allowToggle>
