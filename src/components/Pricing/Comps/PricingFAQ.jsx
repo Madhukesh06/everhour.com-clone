@@ -9,7 +9,6 @@ import {
   Box,
   Flex,
   Text,
-
 } from "@chakra-ui/react";
 import "../Pricing.module.css";
 
