@@ -151,12 +151,13 @@ const Navbar = () => {
                   fontSize={'sm'}
                   fontWeight={600}
                   color={'white'}
-                  colorScheme={'whatsapp'}
                   as={NavLink}
                   to='/signup'
+                  bg="#56bb72"
+                  _dark={{ bg: "brand.500" }}
                   _hover={{
-                     bg: '#25D366',
-                     boxShadow: 'md'
+                     bg: "green.400",
+                     boxShadow: "rgba(123, 213, 133, 0.400) 0px 3px 7px 3px"
                   }}>
                   Sign up
                </Button>

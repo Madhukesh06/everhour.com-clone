@@ -17,6 +17,7 @@ export default function Footer() {
          bg={'blackAlpha.900'}
          color={'whiteAlpha.900'}
          align={'left'}
+         mt={70}
       >
          <Container as={Stack} maxW={'auto'} py={10} px={{ base: 8, md: 10, lg: 20 }}>
             <SimpleGrid columns={{ base: 2, md: 3, lg: 6 }} spacing={8}>
