@@ -6,7 +6,7 @@ import {
   Text,
   Input,
 } from "@chakra-ui/react";
-import "../Pricing.css";
+import "../Pricing.module.css";
 
 const PricingLastSection = () => {
   return (
