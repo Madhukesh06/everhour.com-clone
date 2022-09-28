@@ -19,12 +19,11 @@ const DesktopNav = ({ NAV_ITEMS }) => {
                         as={NavLink}
                         to={navItem.link}
                         fontSize={'md'}
-                        fontWeight={400}
+                        fontWeight={500}
                         color={linkColor}
                         _hover={{
                            textDecoration: 'none',
                            color: linkHoverColor,
-                           fontWeight: 700
                         }}
                      >
                         {navItem.label}
