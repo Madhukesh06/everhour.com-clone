@@ -15,3 +15,13 @@
     width: 200px;
 }
 
+.icon3{
+    z-index: -10;
+    top: -30px;
+    /* border: 1px solid red; */
+    right: 90px;
+    height: 500px;
+    width: 700px;
+    position: absolute;
+    background-size: cover;
+}
