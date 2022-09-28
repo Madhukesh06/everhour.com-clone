@@ -1,0 +1,48 @@
+
+.accordian_temp{
+    width: 50%;
+}
+.TobeNone{
+    display: block;
+}
+.tobeShown{
+    display: none;
+}
+
+ul{
+    list-style: none;
+    font-size:18px;
+    font-weight: 400;
+}
+li{
+    margin-top: -15px;
+}
+ul li::before {
+    content: "\2022";
+    color: #57bb71;
+    font-weight: bold; 
+    display: inline-block;
+    width:1em;
+    font-size:37px;
+    /* margin-left: -1em;  */
+  }
+  .toHover:hover{
+    border-bottom: 1px solid black;
+  }
+
+
+@media screen and (max-width:500px){
+    .Left_side{
+        display: none;
+    }
+    .accordian_temp{
+        width: 70%;
+    }
+    .TobeNone{
+        display: none;
+    }
+    .tobeShown{
+        display: block;
+        margin-bottom: 30px;
+    }
+}
