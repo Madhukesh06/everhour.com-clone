@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Demo from "../components/Demo/Demo";
+import Pricing from "../components/Pricing/Pricing";
 import Landing from "./Landing/Landing";
 
 const AllRoutes = () => {
@@ -9,7 +10,7 @@ const AllRoutes = () => {
          <Route path='/login' element={<h1>Log in</h1>} />
          <Route path='/signup' element={<h1>Signup</h1>} />
          <Route path='/demo' element={<Demo />} />
-         <Route path='/pricing' element={<h1>Pricing</h1>} />
+         <Route path='/pricing' element={<Pricing/>} />
       </Routes>
    );
 }
