@@ -37,14 +37,14 @@ import {
           </Box>
         </VStack>
   
-        <VStack w={{ base: "90%", md: "50%", xl: "30%" }}>
-          <UnorderedList fontSize="20px" spacing={-1}>
-            <ListItem>Lorem ipsum dolor sit amet</ListItem>
-            <ListItem>Consectetur adipiscing elit</ListItem>
-            <ListItem>Integer molestie lorem at massa</ListItem>
-            <ListItem>Facilisis in pretium nisl aliquet</ListItem>
-            <ListItem>Facilisis in pretium nisl aliquet</ListItem>
-            <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+        <VStack w={{ base: "90%", md: "50%", xl: "40%" }}>
+          <UnorderedList fontSize="20px" spacing={-1} textAlign='left'>
+            <ListItem>Track time from the apps you already use</ListItem>
+            <ListItem>Know where your team’s time is going</ListItem>
+            <ListItem>Keep projects on budget</ListItem>
+            <ListItem>Increase transparency</ListItem>
+            <ListItem>Make your workflow more efficient</ListItem>
+            <ListItem>Spot burnout before it happens</ListItem>
           </UnorderedList>
         </VStack>
       </HStack>
