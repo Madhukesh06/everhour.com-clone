@@ -10,14 +10,18 @@ import {
     Icon,
     Link,
     Center,
+    Image,
 } from "@chakra-ui/react";
 
 import styles from "../demo.module.css";
 import image from "../Images/google-logo.png";
+import icon4 from "../Images/green-oval.png"
+import icon5 from "../Images/rectangle.png"
 
 export default function DemoBottomSec() {
     const Feature = (props) => (
         <Flex alignItems="center" color={null} _dark={{ color: "white" }}>
+
             <Icon
                 boxSize={4}
                 mr={1}
@@ -36,7 +40,10 @@ export default function DemoBottomSec() {
     );
     return (
         <>
+            <Box className={styles.icon4} > <Image src={icon4} /> </Box>
+            <Box className={styles.icon5} > <Image src={icon5} /> </Box>
             <Box px={4} py={32} mx="auto" maxW="7xl">
+
                 <Box
                     w={{ base: "full", md: 11 / 12, xl: 8 / 12 }}
                     textAlign={{ base: "left", md: "center" }}
@@ -104,6 +111,7 @@ export default function DemoBottomSec() {
                     </Center>
                 </Link>
             </Box>
+
         </>
     );
 }

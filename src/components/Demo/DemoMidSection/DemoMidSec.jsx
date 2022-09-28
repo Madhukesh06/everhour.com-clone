@@ -12,15 +12,22 @@ import { chakra } from "@chakra-ui/react";
 import icon2 from "../Images/green.png"
 import icon3 from "../Images/dot.png"
 
+import icon6 from "../Images/oval-solid-orange.png"
+import icon7 from "../Images/corner-rect.png"
+
 import React from "react";
 import Icons from "../Icons/Icons";
 import styles from "../demo.module.css";
 
 export default function DemoMidSec() {
     return (
-        <Center py={6} mt="8rem">
+        <Center py={6} mt="8rem" >
             <Box className={styles.icon2} > <Image src={icon2} /> </Box>
             <Box className={styles.icon3} > <Image src={icon3} /> </Box>
+
+            <Box className={styles.icon6} > <Image src={icon6} /> </Box>
+            <Box className={styles.icon7} > <Image src={icon7} /> </Box>
+
             <Box
                 maxW="lg"
                 w={"full"}
