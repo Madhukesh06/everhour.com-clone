@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { chakra } from "@chakra-ui/react";
 import icon2 from "../Images/green.png"
+import icon3 from "../Images/dot.png"
 
 import React from "react";
 import Icons from "../Icons/Icons";
@@ -19,6 +20,7 @@ export default function DemoMidSec() {
     return (
         <Center py={6} mt="8rem">
             <Box className={styles.icon2} > <Image src={icon2} /> </Box>
+            <Box className={styles.icon3} > <Image src={icon3} /> </Box>
             <Box
                 maxW="lg"
                 w={"full"}
