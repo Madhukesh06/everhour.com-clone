@@ -13,51 +13,63 @@ const NAV_ITEMS = [
       children: [
          {
             label: 'Asana',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/asana.png'
          },
          {
             label: 'ClickUp',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/clickup.png'
          },
          {
             label: 'Basecamp',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/basecamp.png'
          },
          {
             label: 'Trello',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/trello.png'
          },
          {
             label: 'Jira',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/jira.png'
          },
          {
             label: 'Monday',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/monday.png'
          },
          {
             label: 'GitHub',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/github.png'
          },
          {
             label: 'GitLab',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/gitlab.png'
          },
          {
             label: 'Todoist',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/todoist.png'
          },
          {
             label: 'Notion',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/notion.png'
          },
          {
             label: 'Xero',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/xero.png'
          },
          {
             label: 'QuickBooks',
-            link: '/'
+            link: '/',
+            logo: 'https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/assets/Integrations/quickbooks.png'
          }
       ]
    },
@@ -79,7 +91,9 @@ const Navbar = () => {
       <Box
          pt={{ base: 0, sm: 0, md: 2, lg: 5 }}
          position="sticky"
-         top={{ base: 0, sm: 0, md: -2, lg: -5 }}>
+         top={{ base: 0, sm: 0, md: -2, lg: -5 }}
+         zIndex={7}
+      >
          <Flex
             bg={useColorModeValue('white', 'gray.800')}
             color={useColorModeValue('gray.600', 'white')}
@@ -87,6 +101,7 @@ const Navbar = () => {
             py={{ base: 2 }}
             px={{ base: 4, sm: 4, md: 6, lg: 10 }}
             borderBottom={1}
+            boxShadow={'sm'}
             borderStyle={'solid'}
             borderColor={useColorModeValue('gray.200', 'gray.900')}
             fontSize={'lg'}
@@ -125,9 +140,10 @@ const Navbar = () => {
                   as={NavLink}
                   to='/login'
                   fontSize={'md'}
-                  fontWeight={400}
+                  fontWeight={500}
                   variant={'shadow'}
-                  _hover={{ fontWeight: 700 }}>
+                  _hover={{ color: 'black' }}
+               >
                   Log in
                </Button>
                <Button

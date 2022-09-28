@@ -1,4 +1,4 @@
-import { Flex, Text, Stack, Collapse, Icon, Link, useColorModeValue, useDisclosure } from '@chakra-ui/react';
+import { Flex, Text, Stack, Collapse, Icon, Link, useColorModeValue, useDisclosure, Image } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
 
@@ -44,7 +44,14 @@ const MobileNavItem = ({ label, children, link }) => {
                {children &&
                   children.map((child) => (
                      <Link key={child.label} py={2} as={NavLink} to={child.link}>
-                        {child.label}
+                        <Flex
+                           justify={'start'}
+                           align={'center'}
+                           gap={2}
+                        >
+                           <Image src={child.logo} alt={child.label} boxSize='17px' />
+                           {child.label}
+                        </Flex>
                      </Link>
                   ))}
             </Stack>
