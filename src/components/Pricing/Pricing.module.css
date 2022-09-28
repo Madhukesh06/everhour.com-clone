@@ -9,15 +9,15 @@
     display: none;
 }
 
-ul{
+TobeNone ul{
     list-style: none;
     font-size:18px;
     font-weight: 400;
 }
-li{
+TobeNone li{
     margin-top: -15px;
 }
-ul li::before {
+TobeNone ul li::before {
     content: "\2022";
     color: #57bb71;
     font-weight: bold; 

@@ -11,7 +11,7 @@ import {
   Text,
 
 } from "@chakra-ui/react";
-import "../Pricing.css";
+import "../Pricing.module.css";
 
 const PricingFAQ = () => {
   return (
