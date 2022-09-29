@@ -1,0 +1,39 @@
+
+.container{
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.Accordian_temp{
+    width: 102%;
+    margin-left: -16px;
+}
+.daysFlex{
+    border: 1px solid grey;
+}
+.mainGrid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: 40px;
+}
+.mainGrid div{
+    border: 1px solid red;
+}
+.timeDiv{
+    width: 192%;
+    margin-left: -10px;
+    padding: 15px;
+    
+}
+.timeDiv:hover{
+    border: 1px solid rgb(208, 206, 206);
+}
+.toShown{
+    font-size: 20px;
+    display: none;
+    color: #24be6a;
+    cursor: pointer;
+}
+
+.Row:hover .toShown{display: flex;}
