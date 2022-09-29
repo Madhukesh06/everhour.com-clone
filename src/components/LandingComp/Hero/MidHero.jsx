@@ -15,7 +15,7 @@ import {
           w={{
             base: "full",
             md: 11 / 12,
-            xl: 9 / 12
+            xl: 7 / 12
           }}
           mx="auto"
           textAlign={{

@@ -5,9 +5,9 @@ import BottomHero from './BottomHero'
 
 function Hero() {
   return (
-    <Box mt="50px">
+    <Box mt="80px">
       <MidHero />
-      <Box w={{ base: "80%", md: "60%", lg: "30%" }} m="auto">
+      <Box w={{ base: "80%", md: "60%", lg: "35%" }} m="auto">
         <BottomHero />
       </Box>
     </Box>

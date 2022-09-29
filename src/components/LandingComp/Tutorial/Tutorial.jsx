@@ -1,4 +1,4 @@
-import { Box, chakra, HStack, Icon, Link } from "@chakra-ui/react";
+import { Box, chakra, HStack, Icon, Image, Link } from "@chakra-ui/react";
 import {
   SiAsana,
   SiClickup,
@@ -11,10 +11,13 @@ import { ImBasecamp } from "react-icons/im";
 import { CgMonday } from "react-icons/cg";
 import CaptionCarousel from "./Carousel";
 // import Carousel from "./Carousel";
+import dotIcon from '../../Demo/Images/dot.png'
+import styles from './background.module.css'
 
 export default function Tutorial() {
   return (
     <Box mt="40px">
+      <Box className={styles.dotIcon}><Image src={dotIcon}/></Box>
       <Box
         textAlign={{
           lg: "center"
