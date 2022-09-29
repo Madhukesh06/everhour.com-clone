@@ -1,0 +1,6 @@
+.dotIcon{
+    position: absolute;
+    z-index: -10;
+    width: 400px;
+    /* background-size: 50px; */
+}

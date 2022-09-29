@@ -80,7 +80,8 @@ export default function CaptionCarousel() {
   return (
     <Box
       position={"relative"}
-      height={"600px"}
+      // height={"600px"}
+      h={{base: '340px', md:'450px', xl: "550px"}}
       width={"full"}
       overflow={"hidden"}
     >
@@ -128,22 +129,22 @@ export default function CaptionCarousel() {
           <Box
             key={index}
             // height={"6xl"}
-            // position="relative"
+            position="relative"
             // backgroundPosition="top"
             // backgroundRepeat="no-repeat"
             // backgroundSize="cover"
             // backgroundImage={`url(${card.image})`}
           >
-            <Image src={card.image} />
+            <Image src={card.image} w={{base:'90%',md:'60%', lg: "60%"}} m='auto'/>
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" position="relative">
+            {/* <Container size="container.lg" position="relative">
               <Stack
                 spacing={6}
                 w={"full"}
                 maxW={"lg"}
                 position="absolute"
-                top="50%"
-                transform="translate(0, -50%)"
+                top="-50%"
+                transform="translate(0, -400px)"
               >
                 <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
                   {card.title}
@@ -152,7 +153,7 @@ export default function CaptionCarousel() {
                   {card.text}
                 </Text>
               </Stack>
-            </Container>
+            </Container> */}
           </Box>
         ))}
       </Slider>
