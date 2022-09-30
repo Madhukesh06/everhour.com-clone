@@ -17,11 +17,14 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Tooltip,
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
-import {AiFillPlayCircle , AiOutlineStar , AiOutlinePauseCircle} from "react-icons/ai"
+import {AiFillPlayCircle , AiOutlineStar } from "react-icons/ai"
 import {BsFillCircleFill} from "react-icons/bs"
+import {MdDelete} from "react-icons/md"
+import {BsStopCircle} from "react-icons/bs"
 import styles from "./TimeSheet.module.css";
 
 const TimeSheet = () => {
@@ -118,46 +121,65 @@ const TimeSheet = () => {
                                     </Text>
                                 <Box className={styles.toShown}>
                                     <AiOutlineStar/>
-                                    {play ? <AiFillPlayCircle onClick={()=>setPlay(false)}/> : <AiOutlinePauseCircle onClick={()=>setPlay(true)}/>}
+                                    {play ? <AiFillPlayCircle onClick={()=>setPlay(false)}/> : <BsStopCircle onClick={()=>setPlay(true)} style={{color:"red"}}/>}
                                 </Box>
+                                <MdDelete className={styles.delIcon}/>
                             </Box>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
-                        <Th className={styles.daysFlex} isNumeric>-</Th>
+                        <Th className={styles.daysFlex} isNumeric>
+                            <Box>
+                                -
+                            </Box>
+                            </Th>
                     </Tr>
                     <Tr className={styles.Row}>
                         <Th width={"50%"} className={styles.daysFlex}>
@@ -169,44 +191,59 @@ const TimeSheet = () => {
                                     </Text>
                                 <Box className={styles.toShown}>
                                     <AiOutlineStar/>
-                                    {play ? <AiFillPlayCircle onClick={()=>setPlay(false)}/> : <AiOutlinePauseCircle onClick={()=>setPlay(true)}/>}
+                                    {play ? <AiFillPlayCircle onClick={()=>setPlay(false)}/> : <BsStopCircle onClick={()=>setPlay(true)} style={{color:"red"}}/>}
                                 </Box>
+                                <MdDelete className={styles.delIcon}/>
                             </Box>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex} isNumeric>-</Th>
                     </Tr>
@@ -220,44 +257,59 @@ const TimeSheet = () => {
                                 </Text>
                                 <Box className={styles.toShown}>
                                     <AiOutlineStar/>
-                                    {play ? <AiFillPlayCircle onClick={()=>setPlay(false)}/> : <AiOutlinePauseCircle onClick={()=>setPlay(true)}/>}
+                                    {play ? <AiFillPlayCircle onClick={()=>setPlay(false)}/> : <BsStopCircle onClick={()=>setPlay(true)} style={{color:"red"}}/>}
                                 </Box>
+                                <MdDelete className={styles.delIcon}/>
                             </Box>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex}>
+                            <Tooltip label="Your Text" placement="top">
                             <Box className={styles.timeDiv}>
                                 -
                             </Box>
+                            </Tooltip>
                         </Th>
                         <Th className={styles.daysFlex} isNumeric>-</Th>
                     </Tr>

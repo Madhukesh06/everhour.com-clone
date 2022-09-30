@@ -27,7 +27,7 @@
     
 }
 .timeDiv:hover{
-    border: 1px solid rgb(208, 206, 206);
+    cursor: pointer;
 }
 .toShown{
     font-size: 20px;
@@ -35,5 +35,12 @@
     color: #24be6a;
     cursor: pointer;
 }
+.delIcon{
+    font-size: 20px;
+    opacity: 0.7;
+    display: none;
+    cursor: pointer;
+}
 
 .Row:hover .toShown{display: flex;}
+.Row:hover .delIcon{display: block;}
