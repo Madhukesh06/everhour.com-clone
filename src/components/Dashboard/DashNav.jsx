@@ -1,9 +1,10 @@
 import { Box } from "@chakra-ui/react";
+import TopBar from "../TopBar/TopBar";
 
 export default function DashNav() {
   return (
-  <Box h='70px' w='100%' border='1px solid blue'>
-
+  <Box w='100%'>
+    <TopBar/>
   </Box>
   )
 }
