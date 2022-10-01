@@ -11,6 +11,7 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -18,6 +19,7 @@ import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { registerAction } from "../../store/auth/auth.actions";
+import green from "../../assets/bg-element-oval.jpg";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -40,7 +42,32 @@ export default function Signup() {
   };
 
   return (
-    <>
+    <Box pos="relative"   overflow={'hidden'}>
+      <Image
+        pos="absolute"
+        transform="rotate(180deg)"
+        display={{ base: "none", lg: "flex" }}
+        top="7rem"
+        src="https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/components/Demo/Images/oval-solid-orange.png"
+        alt="backgroud-pngs"
+      />
+      <Image
+        pos="absolute"
+        display={{ base: "none", lg: "flex" }}
+        top="6rem"
+        left="7rem"
+        h={120}
+        src="https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/components/Demo/Images/green.png"
+        alt="backgroud-pngs"
+      />
+      <Image
+        pos="absolute"
+        transform="rotate(130deg)"
+        display={{ base: "none", lg: "flex" }}
+        right="-14rem"
+        src="https://github.com/Madhukesh06/efficacious-talk-3107/blob/master/src/components/Demo/Images/dot.png?raw=true"
+        alt="backgroud-pngs"
+      />
       <Stack
         align={"center"}
         maxW={{ base: "xl", md: "4xl" }}
@@ -60,14 +87,9 @@ export default function Signup() {
           future projects more effectively.
         </Text>
       </Stack>
-      <Flex justify={"center"} bg={useColorModeValue("gray.50", "gray.800")}>
+      <Flex justify={"center"}>
         <Stack spacing={8} mx={"auto"} maxW="lg" py={12} px={6}>
-          <Box
-            rounded={"lg"}
-            bg={useColorModeValue("white", "gray.700")}
-            boxShadow={"lg"}
-            p={8}
-          >
+          <Box rounded={"lg"} boxShadow={"lg"} p={8}>
             <Stack spacing={4}>
               <HStack>
                 <Box></Box>
@@ -148,7 +170,16 @@ export default function Signup() {
         m="auto"
         h="auto"
         color="blackAlpha.700"
+        pos="relative"
       >
+        <Image
+          pos="absolute"
+          boxSize={900}
+          zIndex="-7"
+          left="-4rem"
+          src={green}
+          alt="background-icon"
+        />
         <Stack
           m={{ base: "auto", md: "2" }}
           mb={4}
@@ -157,6 +188,7 @@ export default function Signup() {
         >
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             borderColor="green"
@@ -176,6 +208,7 @@ export default function Signup() {
           </Box>
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="65%"
@@ -192,8 +225,10 @@ export default function Signup() {
             is speed,flexibility,ability to integrate with all major project
             management software And Everhour is exactly that kind of software."
           </Box>
+
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="65%"
@@ -219,6 +254,7 @@ export default function Signup() {
         >
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="65%"
@@ -242,6 +278,7 @@ export default function Signup() {
           </Box>
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="70%"
@@ -263,6 +300,7 @@ export default function Signup() {
             just a few clicks”
           </Box>
         </Stack>
+
         <Stack
           m={{ base: "auto", md: "2" }}
           mb={4}
@@ -271,6 +309,7 @@ export default function Signup() {
         >
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="65%"
@@ -289,6 +328,7 @@ export default function Signup() {
 
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="65%"
@@ -308,6 +348,7 @@ export default function Signup() {
           </Box>
           <Box
             p={7}
+            bg="white"
             borderRadius="md"
             boxShadow="md"
             height="65%"
@@ -338,6 +379,6 @@ export default function Signup() {
       >
         Read More
       </Button>
-    </>
+    </Box>
   );
 }

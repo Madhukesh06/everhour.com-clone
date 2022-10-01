@@ -10,12 +10,15 @@ import {
   VStack,
   chakra,
   Spacer,
+  Image,
+  Stack,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../../store/auth/auth.actions";
+import girl from '../../assets/girl.jpg'
 
 export default function Login() {
   const [creds, setCreds] = useState({});
@@ -35,7 +38,40 @@ export default function Login() {
   };
 
   return (
-    <>
+    <Box pos="relative" pb='14rem' overflow={'hidden'}>
+      <Image
+        pos="absolute"
+        transform="rotate(180deg)"
+        display={{ base: "none", lg: "flex" }}
+        top="7rem"
+        src="https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/components/Demo/Images/oval-solid-orange.png"
+        alt="backgroud-pngs"
+      />
+      <Image
+        pos="absolute"
+        display={{ base: "none", lg: "flex" }}
+        top='6rem'
+        left='7rem'
+        h={120}
+        src="https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/components/Demo/Images/green.png"
+        alt="backgroud-pngs"
+      />
+      <Image
+        pos="absolute"
+        transform="rotate(130deg)"
+        display={{ base: "none", lg: "flex" }}
+        right='-14rem'
+        src="https://github.com/Madhukesh06/efficacious-talk-3107/blob/master/src/components/Demo/Images/dot.png?raw=true"
+        alt="backgroud-pngs"
+      />
+      <Image
+        pos="absolute"
+        display={{ base: "none", lg: "flex" }}
+        bottom='0'
+        right='10rem'
+        src={girl}
+        alt="backgroud-pngs"
+      />
       <Box
         bg="white"
         w="100%"
@@ -55,7 +91,8 @@ export default function Login() {
         margin="auto"
         marginTop="10px"
         boxShadow="lg"
-        borderRadius="md"
+        borderRadius="lg"
+        border="1px solid whitesmoke"
       >
         <VStack
           p={7}
@@ -235,6 +272,6 @@ export default function Login() {
         <FcGoogle size={22} style={{ marginRight: "11px" }} />
         OR Signup with Google Account.
       </Button>
-    </>
+    </Box>
   );
 }
