@@ -1,5 +1,6 @@
 import { Box, Button, Flex, FormControl, FormLabel, Heading, HStack, Image, Input, Text, useRadio, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import { getApi, patchApi } from "../../../hooks/Requests";
 
 
 const initValue = {
@@ -7,6 +8,7 @@ const initValue = {
    job: ''
 }
 
+const everhourUser = JSON.parse(localStorage.getItem("everhourUser"))
 
 const BasicInformation = () => {
    const [state, setState] = useState(false);
@@ -16,34 +18,35 @@ const BasicInformation = () => {
    const [newPassword, setNewPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
 
-
+   
    const handleChange = (e) => {
       setImg({ file: URL.createObjectURL(e.target.files[0]) });
    };
-
-
-   const handleSubmit = () => {
-      // console.log(user);
+   
+   const getUser = () => {
+      getApi(everhourUser.email).then((res) => setUser(res))
    }
-
-
+   
+   const handleSubmit = () => {
+      patchApi(user , user.email).then((res) => setUser(res))
+   }
+   
+   
    useEffect(() => {
+      getUser()
       if (newPassword === confirmPassword) setIsSame(true);
       else setIsSame(false);
    }, [newPassword, confirmPassword]);
 
-
+   
    return (
       <VStack
-         w={{ base: '100%', lg: '60%' }}
-         p={7}
+         w={{ base: '100%', lg: '70%' }}
+         py={7}
          align={'left'}
          justify={'center'}
          spacing={7}
          boxSizing={'border-box'}
-         border={1}
-         borderStyle={'solid'}
-         borderColor={'gray.200'}
          color={'blackAlpha.800'}
       >
          <Heading
@@ -181,7 +184,7 @@ const BasicInformation = () => {
                      fontWeight={400}
                      bg={'blackAlpha.50'}
                   >
-                     usermail@gmail.com
+                     {user.email || "useremail@gmail.com"}
                   </Flex>
                </Box>
                <Box w={'50%'} align={'left'}>

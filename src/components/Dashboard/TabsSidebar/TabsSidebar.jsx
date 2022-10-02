@@ -6,6 +6,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  Text,
   VStack,
 } from "@chakra-ui/react";
 import DashNav from "../DashNav";
@@ -18,19 +19,22 @@ import { BsBriefcase } from "react-icons/bs";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { FiPieChart } from "react-icons/fi";
 import GettingStarted from "../Home/GettingStarted";
-import TimeSheet from "../../TimeSheet/TimeSheet";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import TimeSheet from "../TimeSheet/TimeSheet";
+import { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import BasicInformation from "../MyProfile/BasicInformation";
+import ProjectModal from "../MyProjects/ModalProject/ProjectModal";
+import Personal from "../MyProfile/Personal";
 // import Tabs from "./Tabs";
 
 export default function TabsSidebar() {
 
   const [tabIndex, setTabIndex] = useState(0)
+  
 
   return (
     <>
-      <Tabs display="flex" onChange={(index) => setTabIndex(index)}>
+      <Tabs isLazy defaultIndex={3} display="flex" onChange={(index) => setTabIndex(index)}>
         <TabList
           flexDir="column"
           h="100vh"
@@ -48,6 +52,7 @@ export default function TabsSidebar() {
               display={{ base: "none", md: "flex" }}
               as={NavLink}
               to='/'
+              justifyContent='flex-start'
             >
               <Image
                 src="https://app.everhour.com/assets/img/everhour_48.svg"
@@ -67,6 +72,7 @@ export default function TabsSidebar() {
               w="100%"
               display={{ base: "none", md: "flex" }}
               gap={2}
+              justifyContent='flex-start'
             >
               {" "}
               <AiOutlineHome fontSize="26px" color="gray" />
@@ -88,6 +94,7 @@ export default function TabsSidebar() {
               gap={2}
               display={{ base: "none", md: "flex" }}
               bg={tabIndex === 3 ? '#d7f3e3' : 'transparent'}
+              justifyContent='flex-start'
             >
               <BiTimeFive fontSize="26px" color="gray" /> Time
             </Tab>
@@ -106,6 +113,7 @@ export default function TabsSidebar() {
               gap={2}
               display={{ base: "none", md: "flex" }}
               bg={tabIndex === 5 ? '#d7f3e3' : 'transparent'}
+              justifyContent='flex-start'
             >
               <BsBriefcase fontSize="26px" color="gray" /> Projects
             </Tab>
@@ -124,6 +132,7 @@ export default function TabsSidebar() {
               gap={2}
               display={{ base: "none", md: "flex" }}
               bg={tabIndex === 7 ? '#d7f3e3' : 'transparent'}
+              justifyContent='flex-start'
             >
               <HiOutlineIdentification fontSize="26px" color="gray" /> Clients
             </Tab>
@@ -142,6 +151,7 @@ export default function TabsSidebar() {
               gap={2}
               display={{ base: "none", md: "flex" }}
               bg={tabIndex === 9 ? '#d7f3e3' : 'transparent'}
+              justifyContent='flex-start'
             >
               <AiOutlineTeam fontSize="26px" color="gray" /> Team
             </Tab>
@@ -160,8 +170,9 @@ export default function TabsSidebar() {
               gap={2}
               display={{ base: "none", md: "flex" }}
               bg={tabIndex === 11 ? '#d7f3e3' : 'transparent'}
+              justifyContent='flex-start'
             >
-              <FiPieChart fontSize="26px" color="gray" /> Reports
+              <FiPieChart fontSize="26px" color="gray" /> Profile
             </Tab>
             <Tab bg={tabIndex === 12 ? '#d7f3e3' : 'transparent'} w="100%" gap={2} display={{ base: "block", md: "none" }}>
               <FiPieChart fontSize="26px" color="gray" />
@@ -206,6 +217,7 @@ export default function TabsSidebar() {
             left="15%"
           >
             <Myprojects />
+            <ProjectModal/>
           </TabPanel>
           <TabPanel
             w="85%"
@@ -234,6 +246,7 @@ export default function TabsSidebar() {
             position="relative"
             left="15%">
             <BasicInformation/>
+            <Personal/>
           </TabPanel>
           <TabPanel>
             <BasicInformation/>

@@ -28,7 +28,7 @@ function ProjectModal() {
 
   return (
     <>
-      <Button onClick={onOpen}>Project</Button>
+      <Button onClick={onOpen} my={7} w='100%' borderRadius="sm" bg='#24bd6a' color='white' >Project</Button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}

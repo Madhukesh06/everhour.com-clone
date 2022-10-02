@@ -16,6 +16,8 @@ const useTimeSheetHook = () => {
     "NOV",
     "DEC",
   ];
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
   setInterval(() => {
     let curDate = new Date();
     setTime(curDate);
@@ -24,10 +26,11 @@ const useTimeSheetHook = () => {
   let hours = time.getHours();
   let minutes = time.getMinutes();
   let seconds = time.getSeconds();
-  let date = time.getDate(d);
+  let date = time.getDate();
+  let day = days[time.getDay()];
   let month = months[time.getMonth()];
 
-  return { hours, minutes, seconds, date, month };
+  return { hours, minutes, seconds, date, month, day };
 };
 
 export default useTimeSheetHook;

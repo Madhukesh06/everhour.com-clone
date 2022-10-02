@@ -3,7 +3,7 @@ import React from "react";
 
 const BottomComp = () => {
     return (
-        <Stack p={{ base: "2", md: "4" }} direction={{ base: "column", md: "row" }}>
+        <Stack py={{ base: "2", md: "4" }} direction={{ base: "column", md: "row" }}>
             <FormControl>
                 <FormLabel color="gray" fontWeight={600}>
                     Default Startup Page

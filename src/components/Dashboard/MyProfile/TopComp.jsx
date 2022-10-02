@@ -9,7 +9,7 @@ import React from "react";
 
 const TopComp = () => {
     return (
-        <Stack p={{ base: "2", md: "4" }} direction={{ base: "column", md: "row" }} spacing={5}>
+        <Stack py={{ base: "2", md: "4" }} direction={{ base: "column", md: "row" }} spacing={5}>
             <HStack w="100%" spacing={5}>
                 <FormControl>
                     <FormLabel color="gray" fontWeight={600}>

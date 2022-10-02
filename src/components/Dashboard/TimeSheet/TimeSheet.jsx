@@ -25,19 +25,27 @@ import {
   TabPanels,
   TabPanel,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { AiFillPlayCircle, AiOutlineStar } from "react-icons/ai";
 import { BsFillCircleFill } from "react-icons/bs";
 import { MdDelete, MdFavorite } from "react-icons/md";
 import { BsStopCircle } from "react-icons/bs";
 import styles from "./TimeSheet.module.css";
+import useTimeSheetHook from "../../../hooks/useTimeSheetHook";
+import TaskInput from "../TaskInput/TaskInput";
+
+const dayArray = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+const dateArray = ["", "", "", "", "", "", ""];
 
 const TimeSheet = () => {
   const toast = useToast();
-
+  const { hours, minutes, seconds, date, month, day } = useTimeSheetHook()
   const [play, setPlay] = useState(true);
   const [fav, setFav] = useState(false);
+  const [dayArr, setDayArr] = useState(dayArray);
+  const [dateArr, setDateArr] = useState(dateArray);
+
   const fullDate = new Date();
   const handlefav = () => {
     setFav(!fav);
@@ -50,10 +58,15 @@ const TimeSheet = () => {
     });
   };
 
+  useEffect(() => { 
+    let temp = dayArr.indexOf(day);
+    dateArray[temp] = `${month} ${date}`;
+    setDateArr(dateArray);
+  }, []);
   return (
     <>
       <Container maxW="7xl" className={styles.container}>
-        <Tabs>
+        <Tabs isLazy defaultIndex={1}>
           <TabList gap="30px" color="green" className={styles.Flex_Title}>
             <Tab>
               <Text fontSize="20px">List</Text>
@@ -65,7 +78,7 @@ const TimeSheet = () => {
           <TabPanels>
             <TabPanel>
             <Box>
-                <Accordion allowToggle className={styles.Accordian_temp}>
+                <Accordion defaultIndex={[0]} allowToggle className={styles.Accordian_temp}>
                   <AccordionItem>
                     <h2>
                       <AccordionButton>
@@ -90,74 +103,74 @@ const TimeSheet = () => {
                                 Tasks
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Mon
+                                {dayArr[0]}
                                 <br />
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[0]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Tue
+                                {dayArr[1]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[1]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Wed
+                                {dayArr[2]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[2]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Thu
+                                {dayArr[3]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[3]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Fri
+                                {dayArr[4]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[4]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Sat
+                                {dayArr[5]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[5]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Sun
+                                {dayArr[6]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[6]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex} isNumeric>
@@ -440,6 +453,9 @@ const TimeSheet = () => {
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
+                <Flex w='100%'>
+                  <TaskInput/>
+                </Flex>
                 <Accordion allowToggle className={styles.Accordian_temp}>
                   <AccordionItem>
                     <h2>
@@ -744,7 +760,7 @@ const TimeSheet = () => {
             </TabPanel>
             <TabPanel>
               <Box>
-                <Accordion allowToggle className={styles.Accordian_temp}>
+              <Accordion defaultIndex={[0]} allowToggle className={styles.Accordian_temp}>
                   <AccordionItem>
                     <h2>
                       <AccordionButton>
@@ -769,74 +785,74 @@ const TimeSheet = () => {
                                 Tasks
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Mon
+                                {dayArr[0]}
                                 <br />
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[0]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Tue
+                                {dayArr[1]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[1]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Wed
+                                {dayArr[2]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[2]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Thu
+                                {dayArr[3]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[3]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Fri
+                                {dayArr[4]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[4]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Sat
+                                {dayArr[5]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[5]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex}>
-                                Sun
+                                {dayArr[6]}
                                 <Text
                                   fontSize="10px"
                                   color="grey"
                                   fontWeight="lighter"
                                 >
-                                  day
+                                  {dateArr[6]}
                                 </Text>
                               </Th>
                               <Th className={styles.daysFlex} isNumeric>
@@ -1119,6 +1135,9 @@ const TimeSheet = () => {
                     </AccordionPanel>
                   </AccordionItem>
                 </Accordion>
+                <Flex w='100%'>
+                  <TaskInput/>
+                </Flex>
                 <Accordion allowToggle className={styles.Accordian_temp}>
                   <AccordionItem>
                     <h2>

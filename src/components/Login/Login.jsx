@@ -14,16 +14,18 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../store/auth/auth.actions";
 import girl from '../../assets/girl.jpg'
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 export default function Login() {
   const [creds, setCreds] = useState({});
   const dispatch = useDispatch();
-
+  const navigate = useNavigate()
   const onChange = (e) => {
     const { name, value } = e.target;
     setCreds({
@@ -31,11 +33,17 @@ export default function Login() {
       [name]: value,
     });
   };
-
+  let token = useSelector((store) => store.auth.token)
+  
   const handleSubmit = () => {
     console.log(creds);
     dispatch(loginAction(creds));
   };
+  
+  if(token){
+    navigate("/dashboard")
+  }
+  
 
   return (
     <Box pos="relative" pb='14rem' overflow={'hidden'}>

@@ -9,11 +9,22 @@ import {
   MenuList,
   Text
 } from "@chakra-ui/react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutAction } from '../../../store/auth/auth.actions';
+import { useNavigate } from 'react-router-dom';
 
 function BottomTab() {
+  // TODO: redirect logout
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const token = useSelector((store) => store.auth.token) || localStorage.getItem("token")
+    const handleLogout = () => {
+      dispatch(logoutAction())
+      navigate('/')
+    }
+    // if(!token){
+    //   navigate('/')
+    // }
   return (
     <Menu>
       {({ isOpen }) => (
@@ -48,7 +59,7 @@ function BottomTab() {
             <MenuItem>Apps</MenuItem>
             <MenuItem>Request a Demo</MenuItem>
             <MenuItem>Help Docs</MenuItem>
-            <MenuItem color="red" as={Button} onClick={() => dispatch(logoutAction())}>Sign Out</MenuItem>
+            <MenuItem color="red" as={Button} onClick={handleLogout}>Sign Out</MenuItem>
           </MenuList>
         </>
       )}

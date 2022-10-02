@@ -1,7 +1,7 @@
 import { AddIcon } from "@chakra-ui/icons";
 import { Button, ButtonGroup, FormControl, FormLabel, IconButton, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, useDisclosure, useHighlight } from "@chakra-ui/react";
 import { useRef, useState } from "react";
-import useTaskInput from "../../hooks/useTaskInput";
+import useTaskInput from "../../../hooks/useTaskInput";
 
 function TaskInput() {
    const { isOpen, onOpen, onClose } = useDisclosure();
