@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT_SUCCESS, REGISTER_ERROR, REGISTER_LOADING, REGISTER_SUCCESS } from './auth.types';
 
 const initialState = {
@@ -6,6 +7,8 @@ const initialState = {
     error:false,
     token: ""
 }
+
+let token = localStorage.getItem("token") || ""
 
 const authReducer = (state=initialState, {type, payload}) => {
     switch (type) {
@@ -47,6 +50,7 @@ const authReducer = (state=initialState, {type, payload}) => {
         }
         case LOGIN_SUCCESS: {
           console.log(payload, "this is reducer");
+          localStorage.setItem("token", payload.token)
           // <Navigate to="/" />;
           return {
             ...state,
@@ -56,6 +60,7 @@ const authReducer = (state=initialState, {type, payload}) => {
           };
         }
         case LOGOUT_SUCCESS: {
+          localStorage.removeItem("token")
           return {
             ...state,
             loading: false,

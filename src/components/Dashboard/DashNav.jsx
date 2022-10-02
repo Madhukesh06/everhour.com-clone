@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import TopBar from "../TopBar/TopBar";
+import TopBar from "./TopBar/TopBar";
 
 export default function DashNav() {
   return (

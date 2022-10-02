@@ -3,7 +3,7 @@ import React from "react";
 
 const MidComp = () => {
     return (
-        <Stack p={{ base: "2", md: "4" }} direction={{ base: "column", md: "row" }} spacing={5}>
+        <Stack py={{ base: "2", md: "4" }} direction={{ base: "column", md: "row" }} spacing={5}>
             <FormControl w={{ base: "100%", md: "33%" }}>
                 <FormLabel color="gray" fontWeight={600}>
                     Time Format

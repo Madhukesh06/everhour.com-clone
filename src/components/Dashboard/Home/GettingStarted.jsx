@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, StackDivider, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, StackDivider, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import TitleComp from "./TitleComp";
 
@@ -44,17 +44,18 @@ const GettingStarted = () => {
 
 
    return (
-      <>
-         <Flex my={7} justify={'center'} align={'center'} gap={2}>
-            <Heading size={'md'} fontWeight={400}>
+      <Box >
+         <Flex my={7} mt={40} justify={'center'} align={'center'} gap={2}>
+            <Heading size={'lg'} fontWeight={400}>
                Getting started with Everhour
             </Heading>
             <Text color={'gray'}>(hide forever)</Text>
          </Flex>
          <Flex
             h={200}
-            w={'70%'}
+            w={'60%'}
             m={'auto'}
+            ml="25%"
             border={1}
             borderStyle={'solid'}
             borderColor={'gray.200'}
@@ -109,7 +110,7 @@ const GettingStarted = () => {
                </Button>
             </VStack>
          </Flex>
-      </>
+      </Box>
    );
 }
 
