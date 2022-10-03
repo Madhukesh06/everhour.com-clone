@@ -91,7 +91,7 @@ export default function Login() {
       >
         <Heading
           size={{ base: "xl", md: "2xl" }}
-          fontWeight={"medium"}
+          fontWeight={"bold"}
           color={"blackAlpha.800"}
         >
           Log in to EverHour
