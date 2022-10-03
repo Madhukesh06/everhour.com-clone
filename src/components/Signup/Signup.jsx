@@ -42,11 +42,12 @@ export default function Signup() {
   };
 
   return (
-    <Box pos="relative"   overflow={'hidden'}>
+    <Box pos="relative" overflow={"hidden"}>
       <Image
         pos="absolute"
         transform="rotate(180deg)"
         display={{ base: "none", lg: "flex" }}
+        zIndex={-1}
         top="7rem"
         src="https://raw.githubusercontent.com/Madhukesh06/efficacious-talk-3107/master/src/components/Demo/Images/oval-solid-orange.png"
         alt="backgroud-pngs"
@@ -54,6 +55,7 @@ export default function Signup() {
       <Image
         pos="absolute"
         display={{ base: "none", lg: "flex" }}
+        zIndex={-1}
         top="6rem"
         left="7rem"
         h={120}
@@ -64,6 +66,7 @@ export default function Signup() {
         pos="absolute"
         transform="rotate(130deg)"
         display={{ base: "none", lg: "flex" }}
+        zIndex={-1}
         right="-14rem"
         src="https://github.com/Madhukesh06/efficacious-talk-3107/blob/master/src/components/Demo/Images/dot.png?raw=true"
         alt="backgroud-pngs"
@@ -71,14 +74,15 @@ export default function Signup() {
       <Stack
         align={"center"}
         maxW={{ base: "xl", md: "4xl" }}
-        margin="auto"
-        mt="5rem"
+        m="auto"
+        mt={{ base: "2rem", md: "5rem" }}
+        spacing={4}
       >
         <Heading
-          color="#333333"
+          color="blackAlpha.800"
           fontSize={{ base: "3xl", md: "5xl" }}
           textAlign={"center"}
-          width=""
+          w={"90%"}
         >
           Make your team more productive with Everhour
         </Heading>
@@ -88,25 +92,19 @@ export default function Signup() {
         </Text>
       </Stack>
       <Flex justify={"center"}>
-        <Stack spacing={8} mx={"auto"} maxW="lg" py={12} px={6}>
+        <Stack
+          spacing={8}
+          mx={"auto"}
+          w={{ base: "100%", md: "30%" }}
+          py={12}
+          px={6}
+        >
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
             <Stack spacing={4}>
-              <HStack>
-                <Box></Box>
-              </HStack>
-
-              <Button
-                m={7}
-                w={{ base: "99%", md: "" }}
-                variant={"outline"}
-                marginTop="10px"
-                border="2px solid black"
-                padding="1.6rem"
-              >
+              <Button w="100%" size="lg" variant={"outline"}>
                 <FcGoogle size={22} style={{ marginRight: "11px" }} />
                 Sign up with Google
               </Button>
-
               <h1>
                 <object data="" type="">
                   Or
@@ -116,17 +114,17 @@ export default function Signup() {
                 <Input
                   name="email"
                   onChange={onChange}
-                  p={6}
-                  mb={5}
-                  placeholder="Enter Email..."
+                  size="lg"
+                  mb={4}
+                  placeholder="Enter your email..."
                 />
                 <InputGroup>
                   <Input
                     name="password"
                     onChange={onChange}
-                    p={6}
+                    size="lg"
                     type={showPassword ? "text" : "password"}
-                    placeholder="Enter password..."
+                    placeholder="Set your password..."
                   />
                   <InputRightElement h={"full"}>
                     <Button
@@ -144,10 +142,10 @@ export default function Signup() {
                 <Button
                   loadingText="Submitting"
                   size="lg"
-                  bg={"green.400"}
+                  bg={"#57ba72"}
                   color={"white"}
                   _hover={{
-                    bg: "green.500",
+                    bg: "#24bd6a",
                   }}
                   onClick={handleSubmit}
                 >
@@ -373,7 +371,7 @@ export default function Signup() {
         color="#24bd68"
         border="1px solid #24bd68"
         _hover={{
-          bg: "#24bd68",
+          bg: "#24bd6a",
           color: "white",
         }}
       >

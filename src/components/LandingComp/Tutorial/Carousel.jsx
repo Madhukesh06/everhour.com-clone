@@ -1,14 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  IconButton,
-  useBreakpointValue,
-  Stack,
-  Heading,
-  Text,
-  Container,
-  Image
-} from "@chakra-ui/react";
+import { Box, IconButton, useBreakpointValue, Image } from "@chakra-ui/react";
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 // And react-slick as our Carousel Lib
@@ -24,7 +15,7 @@ const settings = {
   speed: 500,
   autoplaySpeed: 5000,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
 };
 
 export default function CaptionCarousel() {
@@ -42,46 +33,40 @@ export default function CaptionCarousel() {
   const cards = [
     {
       title: "Design Projects 1",
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/asana-primary.webp"
+        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/asana-primary.webp",
     },
     {
       title: "Design Projects 2",
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/trello-primary.webp"
+        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/trello-primary.webp",
     },
     {
       title: "Design Projects 3",
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/basecamp-primary.webp"
+        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/basecamp-primary.webp",
     },
     {
       title: "Design Projects 3",
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/jira-primary.webp"
+        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/jira-primary.webp",
     },
     {
       title: "Design Projects 3",
-      text:
-        "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
+      text: "The project board is an exclusive resource for contract work. It's perfect for freelancers, agencies, and moonlighters.",
       image:
-        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/github-primary.webp"
-    }
+        "https://blog-cdn.everhour.com/assets/images/new-design/screens/integrations/github-primary.webp",
+    },
   ];
 
   return (
     <Box
       position={"relative"}
-      // height={"600px"}
-      h={{base: '340px', md:'450px', xl: "550px"}}
+      h={{ base: "340px", md: "450px", xl: "550px" }}
       width={"full"}
       overflow={"hidden"}
     >
@@ -126,34 +111,12 @@ export default function CaptionCarousel() {
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
-          <Box
-            key={index}
-            // height={"6xl"}
-            position="relative"
-            // backgroundPosition="top"
-            // backgroundRepeat="no-repeat"
-            // backgroundSize="cover"
-            // backgroundImage={`url(${card.image})`}
-          >
-            <Image src={card.image} w={{base:'90%',md:'60%', lg: "60%"}} m='auto'/>
-            {/* This is the block you need to change, to customize the caption */}
-            {/* <Container size="container.lg" position="relative">
-              <Stack
-                spacing={6}
-                w={"full"}
-                maxW={"lg"}
-                position="absolute"
-                top="-50%"
-                transform="translate(0, -400px)"
-              >
-                <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-                  {card.title}
-                </Heading>
-                <Text fontSize={{ base: "md", lg: "lg" }} color="GrayText">
-                  {card.text}
-                </Text>
-              </Stack>
-            </Container> */}
+          <Box key={index} position="relative">
+            <Image
+              src={card.image}
+              w={{ base: "90%", md: "60%", lg: "60%" }}
+              m="auto"
+            />
           </Box>
         ))}
       </Slider>

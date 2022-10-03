@@ -1,55 +1,51 @@
-import { Box, chakra, HStack, Icon, Image, Link } from "@chakra-ui/react";
+import { Box, chakra, HStack, Image, Link } from "@chakra-ui/react";
 import {
   SiAsana,
   SiClickup,
   SiGithub,
   SiJirasoftware,
   SiNotion,
-  SiTrello
+  SiTrello,
 } from "react-icons/si";
 import { ImBasecamp } from "react-icons/im";
 import { CgMonday } from "react-icons/cg";
 import CaptionCarousel from "./Carousel";
-// import Carousel from "./Carousel";
-import dotIcon from '../../Demo/Images/dot.png'
-import styles from './background.module.css'
+import dotIcon from "../../Demo/Images/dot.png";
 
 export default function Tutorial() {
   return (
-    <Box mt="40px">
-      <Box className={styles.dotIcon}><Image src={dotIcon}/></Box>
+    <Box my={20}>
+      <Box pos="absolute" zIndex="-10">
+        <Image src={dotIcon} />
+      </Box>
       <Box
         textAlign={{
-          lg: "center"
+          lg: "center",
         }}
       >
         <chakra.p
           m="auto"
-          mt={2}
           fontSize={{
             base: "3xl",
-            sm: "4xl"
+            sm: "4xl",
           }}
-          lineHeight="8"
+          lineHeight={1.2}
           fontWeight="medium"
-          letterSpacing="tight"
-          _light={{
-            color: "gray.900"
-          }}
+          color="BlackAlpha.700"
           w={{ base: "90%", xl: "40%" }}
         >
-          Track time and watch progress inside <Link> two dozen </Link> popular
-          apps
+          Track time and watch progress inside{" "}
+          <Link color={"#57ba72"}>two dozen</Link> popular apps
         </chakra.p>
         <HStack
-          mt={12}
+          my={14}
           maxW="5xl"
-          fontSize="24px"
+          fontSize={"22px"}
           mx={{
-            lg: "auto"
+            lg: "auto",
           }}
           display={{ base: "none", md: "flex" }}
-          color="#333333"
+          color={"blackAlpha.700"}
           justifyContent="space-between"
         >
           <Link
@@ -71,7 +67,7 @@ export default function Tutorial() {
             style={{ textDecoration: "none" }}
             _hover={{ color: "green" }}
           >
-            <SiTrello color="blue" />
+            <SiTrello color="royalblue" />
             Trello
           </Link>
           <Link
@@ -93,7 +89,7 @@ export default function Tutorial() {
             style={{ textDecoration: "none" }}
             _hover={{ color: "green" }}
           >
-            <SiJirasoftware color="blue" />
+            <SiJirasoftware color="dodgerblue" />
             Jira
           </Link>
           <Link
@@ -115,7 +111,7 @@ export default function Tutorial() {
             style={{ textDecoration: "none" }}
             _hover={{ color: "green" }}
           >
-            <SiClickup />
+            <SiClickup color="tomato" />
             ClickUp
           </Link>
           <Link
@@ -126,7 +122,7 @@ export default function Tutorial() {
             style={{ textDecoration: "none" }}
             _hover={{ color: "green" }}
           >
-            <CgMonday />
+            <CgMonday color="orange" />
             Monday
           </Link>
           <Link
@@ -142,8 +138,7 @@ export default function Tutorial() {
           </Link>
         </HStack>
       </Box>
-
-      <Box mt="40px">
+      <Box mt={20}>
         <CaptionCarousel />
       </Box>
     </Box>

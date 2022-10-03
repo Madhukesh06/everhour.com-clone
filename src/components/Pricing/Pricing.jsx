@@ -7,9 +7,9 @@ import PricingLastSection from "./Comps/PricingLastSection";
 const Pricing = () => {
   return (
     <>
-     <PricingBar/>
-      <PricingFAQ/>
-      <PricingLastSection/>
+      <PricingBar />
+      <PricingFAQ />
+      <PricingLastSection />
     </>
   );
 };
