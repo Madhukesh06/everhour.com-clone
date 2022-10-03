@@ -11,12 +11,11 @@ import { ImBasecamp } from "react-icons/im";
 import { CgMonday } from "react-icons/cg";
 import CaptionCarousel from "./Carousel";
 import dotIcon from "../../Demo/Images/dot.png";
-import styles from "./background.module.css";
 
 export default function Tutorial() {
   return (
     <Box my={20}>
-      <Box className={styles.dotIcon}>
+      <Box pos="absolute" zIndex="-10">
         <Image src={dotIcon} />
       </Box>
       <Box
@@ -139,7 +138,7 @@ export default function Tutorial() {
           </Link>
         </HStack>
       </Box>
-      <Box mt="40px">
+      <Box mt={20}>
         <CaptionCarousel />
       </Box>
     </Box>
