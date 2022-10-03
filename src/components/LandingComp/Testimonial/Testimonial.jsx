@@ -1,9 +1,9 @@
-import { Highlight, HStack, Image, Link, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Link, Text, VStack } from "@chakra-ui/react";
 import quote from "./icons8-get-quote-100.png";
 
 export default function Testimonial() {
   return (
-    <VStack w={{ base: "100%", xl: "80%" }} m="auto" mt="100px" px={5}>
+    <VStack w={{ base: "100%", md: "80%" }} m="auto" mt={40} px={5}>
       <VStack
         color="#333"
         fontSize={{ base: "24px", xl: "36px" }}
@@ -19,7 +19,6 @@ export default function Testimonial() {
           3 million projects
         </Text>
       </VStack>
-
       <HStack
         justify="space-between"
         flexDir={{ base: "column-reverse", sm: "row" }}
