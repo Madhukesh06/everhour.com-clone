@@ -4,36 +4,38 @@ import ActionTimer from "../../../hooks/ActionTimer";
 import useStartStop from "../../../hooks/useStartStop";
 
 const ButtonSec = () => {
+  const { counter, pause, start } = useStartStop();
+  const [click, setClick] = useState(false);
 
-    // const {hours, minutes, seconds} = useTimeSheetHook()
-    const {counter, pause, start} = useStartStop()
-    const [click, setClick] = useState(false)
+  const handleClick = () => {
+    setClick(!click);
+  };
 
-    const handleClick = () => {
-        setClick(!click)
+  useEffect(() => {
+    {
+      click ? start() : pause();
     }
+  }, [click]);
 
-    useEffect(() => {
-        {click ? start() : pause()}
-    }, [click])
-
-    return (
-        <Box width={{ base: "100%", md: "15%" }}>
-            <Button
-                h="100%"
-                bg={click ? "red.500" : "#24BE6A"}
-                padding={{ base: "1.5rem", md: "1.8rem" }}
-                _hover={click ? {bg: 'red'} : { backgroundColor: "green" }}
-                borderRadius={{ base: "0.2rem", md: "0" }}
-                color="white"
-                width="100%"
-                fontWeight="400"
-                onClick={handleClick}
-            >
-                {click ? ActionTimer(counter) : "Start Timer"}
-            </Button>
-        </Box>
-    );
+  return (
+    <Box w={{ base: "100%", md: "15%" }}>
+      <Button
+        w="100%"
+        h="100%"
+        size="lg"
+        bg={click ? "#ff5722" : "#24bd6a"}
+        padding={{ base: "1.5rem", md: "2rem" }}
+        borderRadius={{ base: "0.2rem", md: "0" }}
+        color="white"
+        fontWeight="bold"
+        letterSpacing={1}
+        _hover={click ? { bg: "#f44336" } : { backgroundColor: "#4caf50" }}
+        onClick={handleClick}
+      >
+        {click ? ActionTimer(counter) : "Start Timer"}
+      </Button>
+    </Box>
+  );
 };
 
 export default ButtonSec;

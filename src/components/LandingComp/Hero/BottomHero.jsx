@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 export default function BottomHero() {
   return (
     <VStack spacing={5}>
-      <HStack w="100%" m="auto" spacing={4}>
+      <HStack w={{ base: "90%", md: "100%" }} m="auto" spacing={4}>
         <Input
           size={{ base: "md", md: "lg" }}
           placeholder="Work Email"

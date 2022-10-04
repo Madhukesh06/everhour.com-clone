@@ -20,7 +20,7 @@ const MidSec = () => {
             mb={{ base: "0.8rem", md: "0" }}
         >
             <Box
-                w="50%"
+                w={{base: '60%', md:"50%"}}
                 borderLeft={{ base: "0", md: "1px solid #e8e8e8" }}
                 padding={{ base: "0", md: "0.5rem" }}
             >

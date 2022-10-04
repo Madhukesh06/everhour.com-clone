@@ -16,6 +16,7 @@ const LeftInput = () => {
                 borderRadius="70%"
                 px="2px"
                 as={SearchIcon}
+                boxSize={7}
             />
             <Input
                 width="90%"

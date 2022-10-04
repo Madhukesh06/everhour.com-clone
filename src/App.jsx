@@ -7,20 +7,9 @@ import AllRoutes from './routes/AllRoutes';
 
 function App() {
 
-  const [state, setState] = useState(null) 
-  const token = useSelector((store) => store.auth.token) || localStorage.getItem("token")
-
-  // let token = localStorage.getItem("token")
-  useEffect(() => {
-    setState(token) 
-  }, [token])
-
-
   return (
     <div className="App">
-      {!state && <Navbar />}
       <AllRoutes />
-      {!state && <Footer />}
     </div>
   )
 }

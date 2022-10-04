@@ -9,11 +9,11 @@ export const loginAction = (creds) => async (dispatch) => {
   try {
     let response = await axios.post("https://everhour-backend-production.up.railway.app/users/login", creds);
     dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-    localStorage.setItem("everhourUser", JSON.stringify(creds))
-    // return <Navigate to="/" />;
-    return response.data;
+    localStorage.setItem("everhourUser", JSON.stringify(creds));
+    return true;
   } catch (e) {
     dispatch({ type: LOGIN_ERROR });
+    return false;
   }
 };
 

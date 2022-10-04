@@ -4,6 +4,9 @@ import { NavLink } from 'react-router-dom';
 import DesktopNav from './DesktopNav/DesktopNav';
 import MobileNav from './MobileNav/MobileNav';
 import everhourLogo from '../../assets/Everhour-logo.png';
+import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { logoutAction } from '../../store/auth/auth.actions';
 
 
 const NAV_ITEMS = [
@@ -87,6 +90,14 @@ const NAV_ITEMS = [
 const Navbar = () => {
    const { isOpen, onToggle } = useDisclosure();
 
+   const [test, setTest] = useState(0)
+
+   let token = localStorage.getItem("token") 
+   const dispatch = useDispatch() 
+   useEffect(() => {
+
+   }, [token, test])
+
    return (
       <Box
          pt={{ base: 0, sm: 0, md: 2, lg: 5 }}
@@ -135,31 +146,45 @@ const Navbar = () => {
                justify={'flex-end'}
                direction={'row'}
                spacing={6}>
-               <Button
+               {token ? 
+                  <Button 
+                  onClick={() =>{
+                      dispatch(logoutAction())
+                      setTest(test + 1)
+                     }}
                   display={{ base: 'none', md: 'inline-flex' }}
-                  as={NavLink}
-                  to='/login'
                   fontSize={'md'}
                   fontWeight={500}
                   variant={'shadow'}
                   _hover={{ color: 'black' }}
-               >
-                  Log in
-               </Button>
+                     >Logout</Button>
+                  : 
+                  <Button
+                     display={{ base: 'none', md: 'inline-flex' }}
+                     as={NavLink}
+                     to='/login'
+                     fontSize={'md'}
+                     fontWeight={500}
+                     variant={'shadow'}
+                     _hover={{ color: 'black' }}
+                  >
+                     Log in
+                  </Button>
+               }
                <Button
                   display={{ base: 'none', md: 'inline-flex' }}
                   fontSize={'sm'}
                   fontWeight={600}
                   color={'white'}
                   as={NavLink}
-                  to='/signup'
+                  to={token ? "/dashboard" : '/signup'}
                   bg="#56bb72"
                   _dark={{ bg: "brand.500" }}
                   _hover={{
                      bg: "green.400",
                      boxShadow: "rgba(123, 213, 133, 0.400) 0px 3px 7px 3px"
                   }}>
-                  Sign up
+                  {token ? "My Account" : "Sign Up"}
                </Button>
             </Stack>
 

@@ -13,7 +13,7 @@ import styles from "./Bottom.module.css";
 export default function Bottom() {
   return (
     <HStack
-      w={{ base: "100%", xl: "80%" }}
+      w={{ base: "99%", xl: "80%" }}
       m="auto"
       mt={30}
       mb={{ base: 30, md: 36 }}
