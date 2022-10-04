@@ -1,5 +1,5 @@
 import {
-    Box,
+  Box,
   Button,
   FormControl,
   FormLabel,
@@ -28,7 +28,21 @@ function ProjectModal() {
 
   return (
     <>
-      <Button onClick={onOpen} my={7} w='100%' borderRadius="sm" bg='#24bd6a' color='white' >Project</Button>
+      <Button
+        onClick={onOpen}
+        my={7}
+        w="100%"
+        borderRadius="sm"
+        bg="#24bd6a"
+        letterSpacing={1}
+        size="lg"
+        color="white"
+        _hover={{
+          bg: "#4caf50",
+        }}
+      >
+        Add a new Project
+      </Button>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
@@ -42,7 +56,11 @@ function ProjectModal() {
           <ModalBody pb={6}>
             <FormControl marginTop="30px">
               <FormLabel>Project Name</FormLabel>
-              <Input ref={initialRef} focusBorderColor="green.200"  />
+              <Input
+                ref={initialRef}
+                focusBorderColor="green.300"
+                _hover={{ borderColor: "green" }}
+              />
             </FormControl>
             <FormControl marginTop="20px">
               <FormLabel>Layout</FormLabel>
@@ -59,18 +77,30 @@ function ProjectModal() {
             </FormControl>
             <FormControl marginTop="30px">
               <FormLabel>Client</FormLabel>
-              <Input  placeholder="Select Client" focusBorderColor="green.200" />
+              <Input
+                placeholder="Select Client"
+                focusBorderColor="green.300"
+                _hover={{ borderColor: "green" }}
+              />
             </FormControl>
             <FormControl marginTop="30px">
               <FormLabel>Privacy</FormLabel>
-              <Select placeholder="Select option" focusBorderColor="green.200" >
+              <Select
+                placeholder="Select option"
+                focusBorderColor="green.300"
+                _hover={{ borderColor: "green" }}
+              >
                 <option value="option1">Public To Team </option>
                 <option value="option2">Only Selected Members</option>
               </Select>
             </FormControl>
             <FormControl marginTop="30px">
               <FormLabel>Members</FormLabel>
-              <Select placeholder="Select option" focusBorderColor="green.200" >
+              <Select
+                placeholder="Select option"
+                focusBorderColor="green.300"
+                _hover={{ borderColor: "green" }}
+              >
                 <option value="option1">Select Members</option>
                 <option value="option2">Only Selected Members</option>
               </Select>
@@ -91,14 +121,13 @@ function ProjectModal() {
           </ModalBody>
 
           <ModalFooter textAlign="left" display="flex" justifyContent="left">
-            <Button colorScheme="green" mr={3}>
+            <Button bg="#24bd6a" color="white" mr={3}>
               Create Project
             </Button>
-            <Button onClick={onClose} bg="white" color="grey">Cancel</Button>
+            <Button onClick={onClose} bg="white" color="grey">
+              Cancel
+            </Button>
           </ModalFooter>
-          <Box w="90%" m = "auto" p="10px">
-            <Text fontSize="12px">Learn more by watching tutorial video or reading help docs.</Text>
-          </Box>
         </ModalContent>
       </Modal>
     </>

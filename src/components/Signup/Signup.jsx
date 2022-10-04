@@ -21,12 +21,13 @@ import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { registerAction } from "../../store/auth/auth.actions";
 import green from "../../assets/bg-element-oval.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [creds, setCreds] = useState({});
   const dispatch = useDispatch();
-  const token = useSelector((store) => store.auth.token);
+  const navigate = useNavigate();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -36,17 +37,18 @@ export default function Signup() {
     });
   };
 
-  const toast = useToast()
+  const toast = useToast();
   const handleSubmit = () => {
-    console.log(creds);
-    console.log(token);
-    dispatch(registerAction(creds)).then(() => toast({
-      title: 'account Created',
-      description: "We've created account for you.",
-      status: 'success',
-      duration: 9000,
-      isClosable: true,
-    }))
+    dispatch(registerAction(creds)).then((res) => {
+      toast({
+        title: "account Created",
+        description: "We've created account for you.",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+      });
+      navigate("/login");
+    });
   };
 
   return (
@@ -103,7 +105,7 @@ export default function Signup() {
         <Stack
           spacing={8}
           mx={"auto"}
-          w={{ base: "100%", md: "30%" }}
+          w={{ base: "100%", md: "60%", lg: "30%" }}
           py={12}
           px={6}
         >
@@ -125,7 +127,7 @@ export default function Signup() {
                   size="lg"
                   mb={4}
                   focusBorderColor={"green.300"}
-                  _hover={{borderColor: "green.300"}}
+                  _hover={{ borderColor: "green.300" }}
                   placeholder="Enter your email..."
                 />
                 <InputGroup>
@@ -134,7 +136,7 @@ export default function Signup() {
                     onChange={onChange}
                     size="lg"
                     focusBorderColor={"green.300"}
-                    _hover={{borderColor: "green.300"}}
+                    _hover={{ borderColor: "green.300" }}
                     type={showPassword ? "text" : "password"}
                     placeholder="Set your password..."
                   />

@@ -49,9 +49,7 @@ const authReducer = (state=initialState, {type, payload}) => {
           };
         }
         case LOGIN_SUCCESS: {
-          console.log(payload, "this is reducer");
-          localStorage.setItem("token", payload.token)
-          // <Navigate to="/" />;
+          localStorage.setItem("token", payload.token);
           return {
             ...state,
             loading: false,

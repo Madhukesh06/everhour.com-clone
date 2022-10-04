@@ -1,17 +1,10 @@
 import React from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
-import {
-  Avatar,
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Text,
-} from "@chakra-ui/react";
+import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../../../store/auth/auth.actions";
 import { useNavigate } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 
 function BottomTab() {
   // TODO: redirect logout
@@ -23,9 +16,7 @@ function BottomTab() {
     dispatch(logoutAction());
     navigate("/");
   };
-  // if(!token){
-  //   navigate('/')
-  // }
+
   return (
     <Menu w={"100%"}>
       {({ isOpen }) => (
@@ -33,22 +24,15 @@ function BottomTab() {
           <MenuButton
             isActive={isOpen}
             as={Button}
-            leftIcon={
-              <Avatar
-                name="Aaryan Sinha"
-                src="https://bit.ly/dan-abramov"
-                w="25px"
-                h="25px"
-                mr="12px"
-              />
-            }
+            leftIcon={<CgProfile size={30} />}
             rightIcon={!isOpen ? <ChevronDownIcon /> : <ChevronUpIcon />}
             w="100%"
             py={6}
             pl={3}
-            bg="white"
+            bg="green.100"
+            color="green.700"
           >
-            UserName
+            User Name
           </MenuButton>
           <MenuList w={"100%"} p={2} color="#444444">
             <MenuItem

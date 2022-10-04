@@ -12,6 +12,7 @@ import {
   Spacer,
   Image,
   Stack,
+  useToast,
 } from "@chakra-ui/react";
 
 import { useEffect, useState } from "react";
@@ -25,6 +26,8 @@ export default function Login() {
   const [creds, setCreds] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toast = useToast();
+
   const onChange = (e) => {
     const { name, value } = e.target;
     setCreds({
@@ -32,15 +35,31 @@ export default function Login() {
       [name]: value,
     });
   };
-  let token = useSelector((store) => store.auth.token);
 
   const handleSubmit = () => {
-    dispatch(loginAction(creds));
+    dispatch(loginAction(creds)).then((res) => {
+      console.log(res);
+      if (res) {
+        toast({
+          title: "login successful",
+          description: "Go ahead, start work on your projects.",
+          status: "success",
+          duration: 4000,
+          isClosable: true,
+        });
+      }
+      if (!res) {
+        toast({
+          title: "invalid credential",
+          description: "Please try again with the wright information.",
+          status: "error",
+          duration: 4000,
+          isClosable: true,
+        });
+      }
+      navigate("/dashboard");
+    });
   };
-
-  if (token) {
-    navigate("/dashboard");
-  }
 
   return (
     <Box pos="relative" pb="14rem" overflow={"hidden"}>

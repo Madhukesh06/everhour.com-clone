@@ -5,23 +5,25 @@ import MidComp from "./MidComp";
 import TopComp from "./TopComp";
 
 const Personal = () => {
-    return (
-        <Box  w='90%' borderTop='1px solid lightGray' py={7}>
-            <Heading
-                // ml={{ base: "0.6rem", md: "0.9rem" }}
-                as="h6"
-                size="md"
-                align="left"
-                fontWeight={400}
-                mb={5}
-            >
-                Personal Preferences
-            </Heading>
-            <TopComp />
-            <MidComp />
-            <BottomComp />
-        </Box>
-    );
+  return (
+    <Box
+      w={"100%"}
+      p={{ base: 3, md: 7 }}
+      align={"left"}
+      color={"blackAlpha.800"}
+      border={"1px solid lightgray"}
+      bg={"white"}
+      borderRadius={"lg"}
+      mt={{ base: 3, md: 7 }}
+    >
+      <Heading align={"left"} size={"lg"} mb={4} fontWeight={400}>
+        Personal Preferences
+      </Heading>
+      <TopComp />
+      <MidComp />
+      <BottomComp />
+    </Box>
+  );
 };
 
 export default Personal;

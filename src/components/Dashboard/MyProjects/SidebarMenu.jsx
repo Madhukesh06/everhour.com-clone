@@ -1,14 +1,12 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import {
-  Avatar,
-  Button,
   IconButton,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  Text
 } from "@chakra-ui/react";
+import { CgProfile } from "react-icons/cg";
 
 export default function SidebarMenu() {
   return (
@@ -20,30 +18,36 @@ export default function SidebarMenu() {
             as={IconButton}
             rightIcon={!isOpen ? <ChevronDownIcon /> : <ChevronUpIcon />}
             w="100%"
-            pt={6}
-            pb={6}
-            pl={3}
-            pr={3}
+            p={6}
             bg="transparent"
-          >
-            <Avatar
-              name="Aaryan Sinha"
-              src="https://bit.ly/dan-abramov"
-              w="35px"
-              h="35px"
-              // mr="12px"
-            />
-          </MenuButton>
-          <MenuList fontSize="14px" color="#444444">
-            <MenuItem>My Profile</MenuItem>
-            <MenuItem onClick={() => alert("Kagebunshin")}>
+            leftIcon={<CgProfile color={"gray"} size={30} />}
+          ></MenuButton>
+          <MenuList p={2} fontSize="14px" color="#444444">
+            <MenuItem fontWeight="600" letterSpacing={1}>
+              My Profile
+            </MenuItem>
+            <MenuItem
+              fontWeight="600"
+              letterSpacing={1}
+              onClick={() => alert("Kagebunshin")}
+            >
               Integrations
             </MenuItem>
-            <MenuItem>Billing</MenuItem>
-            <MenuItem>Apps</MenuItem>
-            <MenuItem>Request a Demo</MenuItem>
-            <MenuItem>Help Docs</MenuItem>
-            <MenuItem color="red">Sign Out</MenuItem>
+            <MenuItem fontWeight="600" letterSpacing={1}>
+              Billing
+            </MenuItem>
+            <MenuItem fontWeight="600" letterSpacing={1}>
+              Apps
+            </MenuItem>
+            <MenuItem fontWeight="600" letterSpacing={1}>
+              Request a Demo
+            </MenuItem>
+            <MenuItem fontWeight="600" letterSpacing={1}>
+              Help Docs
+            </MenuItem>
+            <MenuItem fontWeight="600" letterSpacing={1} color="tomato">
+              Sign Out
+            </MenuItem>
           </MenuList>
         </>
       )}

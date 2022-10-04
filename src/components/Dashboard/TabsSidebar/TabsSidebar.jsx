@@ -6,30 +6,35 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Text,
   VStack,
 } from "@chakra-ui/react";
-import DashNav from "../DashNav";
-import Myprojects from "../MyProjects/MyProjects";
+import MyProjects from "../MyProjects/MyProjects";
 import BottomTab from "./BottomTab";
-
-import { AiOutlineHome, AiOutlineTeam } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineLogout, AiOutlineTeam } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
-import { BsBriefcase } from "react-icons/bs";
+import { CgBriefcase } from "react-icons/cg";
 import { HiOutlineIdentification } from "react-icons/hi";
 import { FiPieChart } from "react-icons/fi";
 import GettingStarted from "../Home/GettingStarted";
 import TimeSheet from "../TimeSheet/TimeSheet";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import BasicInformation from "../MyProfile/BasicInformation";
 import ProjectModal from "../MyProjects/ModalProject/ProjectModal";
 import Personal from "../MyProfile/Personal";
 import TopBar from "../TopBar/TopBar";
-// import Tabs from "./Tabs";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutAction } from "../../../store/auth/auth.actions";
 
 export default function TabsSidebar() {
   const [tabIndex, setTabIndex] = useState(0);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logoutAction());
+    navigate("/");
+  };
 
   return (
     <>
@@ -37,7 +42,7 @@ export default function TabsSidebar() {
         variant="soft-rounded"
         colorScheme="green"
         // isLazy
-        h="100vh"
+        minH="100vh"
         defaultIndex={3}
         // display="flex"
         bg="whitesmoke"
@@ -50,23 +55,26 @@ export default function TabsSidebar() {
           w="16%"
           position="fixed"
           justifyContent="space-between"
+          borderRight="1px solid lightgray"
           boxShadow="lg"
-          borderRight="1px solid whitesmoke"
+          bg={"white"}
+          borderTopRightRadius={"xl"}
         >
           <VStack>
             <Tab
               mb={4}
-              gap={3}
+              gap={2}
               w="100%"
-              fontSize="xl"
-              display={{ base: "none", md: "flex" }}
+              fontSize="2xl"
+              display={{ base: "none", lg: "flex" }}
               as={NavLink}
               to="/"
               justifyContent="flex-start"
+              boxShadow="md"
             >
               <Image
+                boxSize={34}
                 src="https://app.everhour.com/assets/img/everhour_48.svg"
-                w="30px"
               />{" "}
               Everhour
             </Tab>
@@ -81,8 +89,8 @@ export default function TabsSidebar() {
                 transition: "0.2s ease-out",
               }}
               w="100%"
-              display={{ base: "none", md: "flex" }}
-              gap={2}
+              display={{ base: "none", lg: "flex" }}
+              gap={3}
               justifyContent="flex-start"
             >
               {" "}
@@ -92,7 +100,7 @@ export default function TabsSidebar() {
             <Tab
               bg={tabIndex === 2 ? "#d7f3e3" : "transparent"}
               w="100%"
-              display={{ base: "block", md: "none" }}
+              display={{ base: "block", lg: "none" }}
             >
               {" "}
               <AiOutlineHome fontSize="26px" color="gray" />
@@ -107,8 +115,8 @@ export default function TabsSidebar() {
                 transition: "0.2s ease-out",
               }}
               w="100%"
-              gap={2}
-              display={{ base: "none", md: "flex" }}
+              gap={3}
+              display={{ base: "none", lg: "flex" }}
               bg={tabIndex === 3 ? "#d7f3e3" : "transparent"}
               justifyContent="flex-start"
             >
@@ -117,8 +125,7 @@ export default function TabsSidebar() {
             <Tab
               bg={tabIndex === 4 ? "#d7f3e3" : "transparent"}
               w="100%"
-              gap={2}
-              display={{ base: "block", md: "none" }}
+              display={{ base: "block", lg: "none" }}
             >
               <BiTimeFive fontSize="26px" color="gray" />
             </Tab>
@@ -132,20 +139,19 @@ export default function TabsSidebar() {
                 transition: "0.2s ease-out",
               }}
               w="100%"
-              gap={2}
-              display={{ base: "none", md: "flex" }}
+              gap={3}
+              display={{ base: "none", lg: "flex" }}
               bg={tabIndex === 5 ? "#d7f3e3" : "transparent"}
               justifyContent="flex-start"
             >
-              <BsBriefcase fontSize="26px" color="gray" /> Projects
+              <CgBriefcase fontSize="26px" color="gray" /> Projects
             </Tab>
             <Tab
               bg={tabIndex === 6 ? "#d7f3e3" : "transparent"}
               w="100%"
-              gap={2}
-              display={{ base: "block", md: "none" }}
+              display={{ base: "block", lg: "none" }}
             >
-              <BsBriefcase fontSize="26px" color="gray" />
+              <CgBriefcase fontSize="26px" color="gray" />
             </Tab>
 
             <Tab
@@ -157,8 +163,8 @@ export default function TabsSidebar() {
                 transition: "0.2s ease-out",
               }}
               w="100%"
-              gap={2}
-              display={{ base: "none", md: "flex" }}
+              gap={3}
+              display={{ base: "none", lg: "flex" }}
               bg={tabIndex === 7 ? "#d7f3e3" : "transparent"}
               justifyContent="flex-start"
             >
@@ -167,8 +173,7 @@ export default function TabsSidebar() {
             <Tab
               bg={tabIndex === 8 ? "#d7f3e3" : "transparent"}
               w="100%"
-              gap={2}
-              display={{ base: "block", md: "none" }}
+              display={{ base: "block", lg: "none" }}
             >
               <HiOutlineIdentification fontSize="26px" color="gray" />
             </Tab>
@@ -182,8 +187,8 @@ export default function TabsSidebar() {
                 transition: "0.2s ease-out",
               }}
               w="100%"
-              gap={2}
-              display={{ base: "none", md: "flex" }}
+              gap={3}
+              display={{ base: "none", lg: "flex" }}
               bg={tabIndex === 9 ? "#d7f3e3" : "transparent"}
               justifyContent="flex-start"
             >
@@ -192,8 +197,7 @@ export default function TabsSidebar() {
             <Tab
               bg={tabIndex === 10 ? "#d7f3e3" : "transparent"}
               w="100%"
-              gap={2}
-              display={{ base: "block", md: "none" }}
+              display={{ base: "block", lg: "none" }}
             >
               <AiOutlineTeam fontSize="26px" color="gray" />
             </Tab>
@@ -207,8 +211,8 @@ export default function TabsSidebar() {
                 transition: "0.2s ease-out",
               }}
               w="100%"
-              gap={2}
-              display={{ base: "none", md: "flex" }}
+              gap={3}
+              display={{ base: "none", lg: "flex" }}
               bg={tabIndex === 11 ? "#d7f3e3" : "transparent"}
               justifyContent="flex-start"
             >
@@ -217,21 +221,27 @@ export default function TabsSidebar() {
             <Tab
               bg={tabIndex === 12 ? "#d7f3e3" : "transparent"}
               w="100%"
-              gap={2}
-              display={{ base: "block", md: "none" }}
+              display={{ base: "block", lg: "none" }}
             >
               <FiPieChart fontSize="26px" color="gray" />
             </Tab>
           </VStack>
-          <BottomTab />
+          <Box display={{ base: "none", lg: "block" }}>
+            <BottomTab />
+          </Box>
+          <Box
+            p={4}
+            display={{ base: "block", lg: "none" }}
+            onClick={handleLogout}
+          >
+            <AiOutlineLogout
+              size={27}
+              style={{ margin: "auto", color: "#ff5722" }}
+            />
+          </Box>
         </TabList>
 
-        <TabPanels
-          // h="100vh"
-          p={2}
-          pl="17%"
-          // justifyContent="flex-end"
-        >
+        <TabPanels p={2} pl="17%">
           <TabPanel ml={"-7%"}>
             <p>Welcome to the Everhour dashboard!</p>
           </TabPanel>
@@ -245,21 +255,19 @@ export default function TabsSidebar() {
 
           <TabPanel>
             <TopBar />
-            {/* <DashNav />
-            <TimeSheet /> */}
+            <TimeSheet />
           </TabPanel>
           <TabPanel>
             <TopBar />
-            {/* <DashNav />
-            <TimeSheet /> */}
+            <TimeSheet />
           </TabPanel>
 
-          <TabPanel w="85%" position="relative" left="15%">
-            <Myprojects />
+          <TabPanel>
+            <MyProjects />
             <ProjectModal />
           </TabPanel>
-          <TabPanel w="85%" position="relative" left="15%">
-            <Myprojects />
+          <TabPanel>
+            <MyProjects />
           </TabPanel>
 
           <TabPanel>
@@ -276,12 +284,13 @@ export default function TabsSidebar() {
             <p>ee!</p>
           </TabPanel>
 
-          <TabPanel w="85%" position="relative" left="15%">
+          <TabPanel>
             <BasicInformation />
             <Personal />
           </TabPanel>
           <TabPanel>
             <BasicInformation />
+            <Personal />
           </TabPanel>
         </TabPanels>
       </Tabs>

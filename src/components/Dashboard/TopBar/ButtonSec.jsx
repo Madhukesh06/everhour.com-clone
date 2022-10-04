@@ -23,13 +23,13 @@ const ButtonSec = () => {
         w="100%"
         h="100%"
         size="lg"
-        bg={click ? "tomato" : "#24bd6a"}
+        bg={click ? "#ff5722" : "#24bd6a"}
         padding={{ base: "1.5rem", md: "2rem" }}
         borderRadius={{ base: "0.2rem", md: "0" }}
         color="white"
         fontWeight="bold"
         letterSpacing={1}
-        _hover={click ? { bg: "red.300" } : { backgroundColor: "green.300" }}
+        _hover={click ? { bg: "#f44336" } : { backgroundColor: "#4caf50" }}
         onClick={handleClick}
       >
         {click ? ActionTimer(counter) : "Start Timer"}

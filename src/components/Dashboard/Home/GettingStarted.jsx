@@ -59,24 +59,22 @@ const GettingStarted = () => {
       bg={"white"}
       align={"left"}
     >
-      <Flex justify={"left"} align={"center"} gap={2}>
-        <Heading size={"lg"} fontWeight={400}>
-          Getting started with Everhour
-        </Heading>
-        <Text color={"gray"}>(hide forever)</Text>
-      </Flex>
+      <Heading size={"lg"} align={"left"} fontWeight={400}>
+        Getting started with Everhour
+      </Heading>
       <Flex
         h={240}
-        w={"80%"}
+        w={{ base: "100%", lg: "80%" }}
         m={"auto"}
         ml="25%"
         border={1}
         borderStyle={"solid"}
         borderColor={"gray.200"}
-        borderRadius={"sm"}
+        borderRadius={"lg"}
+        boxShadow={"sm"}
       >
         <VStack
-          w={"27%"}
+          w={{ base: "100%", md: "27%" }}
           h={"100%"}
           borderRight={1}
           borderStyle={"solid"}
@@ -98,6 +96,7 @@ const GettingStarted = () => {
           justify={"center"}
           bg={"blackAlpha.50"}
           spacing={4}
+          display={{ base: "none", md: "flex" }}
         >
           <Heading size={"md"} fontWeight={"500"}>
             {arr[num].title}
