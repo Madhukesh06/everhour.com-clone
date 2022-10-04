@@ -12,6 +12,7 @@ import {
   Text,
   useColorModeValue,
   Image,
+  useToast,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -35,10 +36,17 @@ export default function Signup() {
     });
   };
 
+  const toast = useToast()
   const handleSubmit = () => {
     console.log(creds);
     console.log(token);
-    dispatch(registerAction(creds));
+    dispatch(registerAction(creds)).then(() => toast({
+      title: 'account Created',
+      description: "We've created account for you.",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    }))
   };
 
   return (
