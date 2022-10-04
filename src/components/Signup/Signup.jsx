@@ -116,6 +116,8 @@ export default function Signup() {
                   onChange={onChange}
                   size="lg"
                   mb={4}
+                  focusBorderColor={"green.300"}
+                  _hover={{borderColor: "green.300"}}
                   placeholder="Enter your email..."
                 />
                 <InputGroup>
@@ -123,6 +125,8 @@ export default function Signup() {
                     name="password"
                     onChange={onChange}
                     size="lg"
+                    focusBorderColor={"green.300"}
+                    _hover={{borderColor: "green.300"}}
                     type={showPassword ? "text" : "password"}
                     placeholder="Set your password..."
                   />

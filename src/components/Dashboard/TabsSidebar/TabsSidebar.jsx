@@ -25,34 +25,44 @@ import { NavLink, useNavigate } from "react-router-dom";
 import BasicInformation from "../MyProfile/BasicInformation";
 import ProjectModal from "../MyProjects/ModalProject/ProjectModal";
 import Personal from "../MyProfile/Personal";
+import TopBar from "../TopBar/TopBar";
 // import Tabs from "./Tabs";
 
 export default function TabsSidebar() {
-
-  const [tabIndex, setTabIndex] = useState(0)
-  
+  const [tabIndex, setTabIndex] = useState(0);
 
   return (
     <>
-      <Tabs isLazy defaultIndex={3} display="flex" onChange={(index) => setTabIndex(index)}>
+      <Tabs
+        variant="soft-rounded"
+        colorScheme="green"
+        // isLazy
+        h="100vh"
+        defaultIndex={3}
+        // display="flex"
+        bg="whitesmoke"
+        onChange={(index) => setTabIndex(index)}
+      >
         <TabList
           flexDir="column"
-          h="100vh"
-          w="13%"
+          p={{ base: 0, md: 4 }}
+          h="100%"
+          w="16%"
           position="fixed"
-          bg="#f9f9f9"
           justifyContent="space-between"
+          boxShadow="lg"
+          borderRight="1px solid whitesmoke"
         >
           <VStack>
             <Tab
-              bg="white"
+              mb={4}
               gap={3}
               w="100%"
               fontSize="xl"
               display={{ base: "none", md: "flex" }}
               as={NavLink}
-              to='/'
-              justifyContent='flex-start'
+              to="/"
+              justifyContent="flex-start"
             >
               <Image
                 src="https://app.everhour.com/assets/img/everhour_48.svg"
@@ -62,28 +72,34 @@ export default function TabsSidebar() {
             </Tab>
 
             <Tab
-              bg={tabIndex === 1 ? '#d7f3e3' : 'transparent'}
+              fontSize={"lg"}
+              bg={tabIndex === 1 ? "#d7f3e3" : "transparent"}
               transition="0.2s ease-out"
               _hover={{
-                background:{tabIndex: 1 ? "#d7f3e3" : "#d7f3e3"},
+                background: { tabIndex: 1 ? "#d7f3e3" : "#d7f3e3" },
                 opacity: "0.9",
                 transition: "0.2s ease-out",
               }}
               w="100%"
               display={{ base: "none", md: "flex" }}
               gap={2}
-              justifyContent='flex-start'
+              justifyContent="flex-start"
             >
               {" "}
               <AiOutlineHome fontSize="26px" color="gray" />
               Home
             </Tab>
-            <Tab bg={tabIndex === 2 ? '#d7f3e3' : 'transparent'} w="100%" display={{ base: "block", md: "none" }}>
+            <Tab
+              bg={tabIndex === 2 ? "#d7f3e3" : "transparent"}
+              w="100%"
+              display={{ base: "block", md: "none" }}
+            >
               {" "}
               <AiOutlineHome fontSize="26px" color="gray" />
             </Tab>
 
             <Tab
+              fontSize={"lg"}
               transition="0.2s ease-out"
               _hover={{
                 background: "#d7f3e3",
@@ -93,16 +109,22 @@ export default function TabsSidebar() {
               w="100%"
               gap={2}
               display={{ base: "none", md: "flex" }}
-              bg={tabIndex === 3 ? '#d7f3e3' : 'transparent'}
-              justifyContent='flex-start'
+              bg={tabIndex === 3 ? "#d7f3e3" : "transparent"}
+              justifyContent="flex-start"
             >
               <BiTimeFive fontSize="26px" color="gray" /> Time
             </Tab>
-            <Tab bg={tabIndex === 4 ? '#d7f3e3' : 'transparent'} w="100%" gap={2} display={{ base: "block", md: "none" }}>
+            <Tab
+              bg={tabIndex === 4 ? "#d7f3e3" : "transparent"}
+              w="100%"
+              gap={2}
+              display={{ base: "block", md: "none" }}
+            >
               <BiTimeFive fontSize="26px" color="gray" />
             </Tab>
 
             <Tab
+              fontSize={"lg"}
               transition="0.2s ease-out"
               _hover={{
                 background: "#d7f3e3",
@@ -112,16 +134,22 @@ export default function TabsSidebar() {
               w="100%"
               gap={2}
               display={{ base: "none", md: "flex" }}
-              bg={tabIndex === 5 ? '#d7f3e3' : 'transparent'}
-              justifyContent='flex-start'
+              bg={tabIndex === 5 ? "#d7f3e3" : "transparent"}
+              justifyContent="flex-start"
             >
               <BsBriefcase fontSize="26px" color="gray" /> Projects
             </Tab>
-            <Tab bg={tabIndex === 6 ? '#d7f3e3' : 'transparent'} w="100%" gap={2} display={{ base: "block", md: "none" }}>
+            <Tab
+              bg={tabIndex === 6 ? "#d7f3e3" : "transparent"}
+              w="100%"
+              gap={2}
+              display={{ base: "block", md: "none" }}
+            >
               <BsBriefcase fontSize="26px" color="gray" />
             </Tab>
 
             <Tab
+              fontSize={"lg"}
               transition="0.2s ease-out"
               _hover={{
                 background: "#d7f3e3",
@@ -131,16 +159,22 @@ export default function TabsSidebar() {
               w="100%"
               gap={2}
               display={{ base: "none", md: "flex" }}
-              bg={tabIndex === 7 ? '#d7f3e3' : 'transparent'}
-              justifyContent='flex-start'
+              bg={tabIndex === 7 ? "#d7f3e3" : "transparent"}
+              justifyContent="flex-start"
             >
               <HiOutlineIdentification fontSize="26px" color="gray" /> Clients
             </Tab>
-            <Tab bg={tabIndex === 8 ? '#d7f3e3' : 'transparent'} w="100%" gap={2} display={{ base: "block", md: "none" }}>
+            <Tab
+              bg={tabIndex === 8 ? "#d7f3e3" : "transparent"}
+              w="100%"
+              gap={2}
+              display={{ base: "block", md: "none" }}
+            >
               <HiOutlineIdentification fontSize="26px" color="gray" />
             </Tab>
 
             <Tab
+              fontSize={"lg"}
               transition="0.2s ease-out"
               _hover={{
                 background: "#d7f3e3",
@@ -150,16 +184,22 @@ export default function TabsSidebar() {
               w="100%"
               gap={2}
               display={{ base: "none", md: "flex" }}
-              bg={tabIndex === 9 ? '#d7f3e3' : 'transparent'}
-              justifyContent='flex-start'
+              bg={tabIndex === 9 ? "#d7f3e3" : "transparent"}
+              justifyContent="flex-start"
             >
               <AiOutlineTeam fontSize="26px" color="gray" /> Team
             </Tab>
-            <Tab bg={tabIndex === 10 ? '#d7f3e3' : 'transparent'} w="100%" gap={2} display={{ base: "block", md: "none" }}>
+            <Tab
+              bg={tabIndex === 10 ? "#d7f3e3" : "transparent"}
+              w="100%"
+              gap={2}
+              display={{ base: "block", md: "none" }}
+            >
               <AiOutlineTeam fontSize="26px" color="gray" />
             </Tab>
 
             <Tab
+              fontSize={"lg"}
               transition="0.2s ease-out"
               _hover={{
                 background: "#d7f3e3",
@@ -169,21 +209,31 @@ export default function TabsSidebar() {
               w="100%"
               gap={2}
               display={{ base: "none", md: "flex" }}
-              bg={tabIndex === 11 ? '#d7f3e3' : 'transparent'}
-              justifyContent='flex-start'
+              bg={tabIndex === 11 ? "#d7f3e3" : "transparent"}
+              justifyContent="flex-start"
             >
               <FiPieChart fontSize="26px" color="gray" /> Profile
             </Tab>
-            <Tab bg={tabIndex === 12 ? '#d7f3e3' : 'transparent'} w="100%" gap={2} display={{ base: "block", md: "none" }}>
+            <Tab
+              bg={tabIndex === 12 ? "#d7f3e3" : "transparent"}
+              w="100%"
+              gap={2}
+              display={{ base: "block", md: "none" }}
+            >
               <FiPieChart fontSize="26px" color="gray" />
             </Tab>
           </VStack>
           <BottomTab />
         </TabList>
 
-        <TabPanels w="85%" justifyContent="flex-end">
-          <TabPanel>
-            <p>Everhour!</p>
+        <TabPanels
+          // h="100vh"
+          p={2}
+          pl="17%"
+          // justifyContent="flex-end"
+        >
+          <TabPanel ml={"-7%"}>
+            <p>Welcome to the Everhour dashboard!</p>
           </TabPanel>
 
           <TabPanel>
@@ -193,37 +243,22 @@ export default function TabsSidebar() {
             <GettingStarted />
           </TabPanel>
 
-          <TabPanel
-            w="85%"
-            position="relative"
-            left="15%"
-          >
-            <DashNav />
-            <TimeSheet />
+          <TabPanel>
+            <TopBar />
+            {/* <DashNav />
+            <TimeSheet /> */}
           </TabPanel>
-          <TabPanel
-            border="1px solid red"
-            w="85%"
-            position="relative"
-            left="15%"
-          >
-            <DashNav />
-            <TimeSheet />
+          <TabPanel>
+            <TopBar />
+            {/* <DashNav />
+            <TimeSheet /> */}
           </TabPanel>
 
-          <TabPanel
-            w="85%"
-            position="relative"
-            left="15%"
-          >
+          <TabPanel w="85%" position="relative" left="15%">
             <Myprojects />
-            <ProjectModal/>
+            <ProjectModal />
           </TabPanel>
-          <TabPanel
-            w="85%"
-            position="relative"
-            left="15%"
-          >
+          <TabPanel w="85%" position="relative" left="15%">
             <Myprojects />
           </TabPanel>
 
@@ -241,15 +276,12 @@ export default function TabsSidebar() {
             <p>ee!</p>
           </TabPanel>
 
-          <TabPanel 
-            w="85%"
-            position="relative"
-            left="15%">
-            <BasicInformation/>
-            <Personal/>
+          <TabPanel w="85%" position="relative" left="15%">
+            <BasicInformation />
+            <Personal />
           </TabPanel>
           <TabPanel>
-            <BasicInformation/>
+            <BasicInformation />
           </TabPanel>
         </TabPanels>
       </Tabs>
