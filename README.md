@@ -5,7 +5,7 @@ Time-Tracking website Clone
 * Original Website Link : https://everhour.com/
 * Clone : https://clone-everhour.netlify.app (Click and explore)
 
-# Tech Stack
+# Tech Stack (MERN)
 Front-End :
 * React js
 * React-redux
@@ -13,8 +13,10 @@ Front-End :
 * Chakra UI
 
 Backe-End :
+* NodeJS
 * MongoDB
 * Express js
+* Mongoose
 
 App Used :
 * Vite App - https://vitejs.dev/guide/
