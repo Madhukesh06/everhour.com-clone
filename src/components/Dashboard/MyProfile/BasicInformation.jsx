@@ -20,9 +20,9 @@ const initValue = {
   job: "",
 };
 
-const everhourUser = JSON.parse(localStorage.getItem("everhourUser"));
 
 const BasicInformation = () => {
+  const [everhourUser, setEverHourUser] = useState(JSON.parse(localStorage.getItem("everhourUser"))) 
   const [state, setState] = useState(false);
   const [isSame, setIsSame] = useState(false);
   const [img, setImg] = useState({ file: null });
@@ -37,16 +37,17 @@ const BasicInformation = () => {
   const getUser = () => {
     getApi(everhourUser.email).then((res) => setUser(res));
   };
-
+  
   const handleSubmit = () => {
     patchApi(user, user.email).then((res) => setUser(res));
   };
+  
 
   useEffect(() => {
     getUser();
     if (newPassword === confirmPassword) setIsSame(true);
     else setIsSame(false);
-  }, [newPassword, confirmPassword]);
+  }, [newPassword, confirmPassword, everhourUser]);
 
   return (
     <VStack

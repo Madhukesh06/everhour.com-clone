@@ -24,3 +24,8 @@ export const postTask = async (params, email) => {
 
     return response.data
 }
+
+export const deleteTask = async (params, email) => {
+    let response = await axios.patch(`https://everhour-backend-production.up.railway.app/users/tasks/del/${email}`, params)
+    return response.data
+}

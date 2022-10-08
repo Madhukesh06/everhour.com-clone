@@ -18,7 +18,7 @@ import { useState } from "react";
 import TaskInput from "../TaskInput/TaskInput";
 import Task from "./Task";
 
-function TaskList({ tasks, handleTask, handleToggle }) {
+function TaskList({ tasks, handleTask, handleToggle, handleDelete , handleFav}) {
    return (
       <TabPanel>
          <Flex w="100%">
@@ -49,7 +49,7 @@ function TaskList({ tasks, handleTask, handleToggle }) {
                      {tasks.map((task) => (
                         <>
                            {!task.isCompleted && (
-                              <Task task={task} handleToggle={handleToggle} />
+                              <Task task={task} handleToggle={handleToggle} handleDelete={handleDelete} handleFav={handleFav} />
                            )}
                         </>
                      ))}
@@ -80,7 +80,7 @@ function TaskList({ tasks, handleTask, handleToggle }) {
                      {tasks.map((task) => (
                         <>
                            {task.isCompleted && (
-                              <Task task={task} handleToggle={handleToggle} />
+                              <Task task={task} handleToggle={handleToggle} handleDelete={handleDelete} handleFav={handleFav} />
                            )}
                         </>
                      ))}

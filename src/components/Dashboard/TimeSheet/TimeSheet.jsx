@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import {
+   deleteTask,
    getApi,
    patchApi,
    patchTasks,
@@ -48,9 +49,30 @@ const TimeSheet = () => {
          everhourUser.email
       ).then((res) => {
          setTasks(res.tasks);
-         console.log(tasks, "patch");
       });
    };
+
+   const handleFav = (task, setFav=false) => {
+      setFav(true)
+      patchTasks(
+         {
+            ...task,
+            isFav: !task.isFav,
+         },
+         everhourUser.email
+      ).then((res) => {
+         setTasks(res.tasks);
+         setFav(false)
+      });
+   }
+
+   const handleDelete = (task, setDel="") => {
+      setDel(true)
+      deleteTask(task, everhourUser.email).then((res) =>{
+          setTasks(res.tasks)
+          setDel(false)
+         })
+   }
 
    useEffect(() => {
       let temp = dayArr.indexOf(day);
@@ -80,17 +102,21 @@ const TimeSheet = () => {
                tasks={tasks}
                handleTask={handleTask}
                handleToggle={handleToggle}
-            />
+               handleDelete={handleDelete}
+               handleFav={handleFav}
+               />
             <TaskPanel
                dayArr={dayArr}
                dateArr={dateArr}
                dashArr={dashArr}
                tasks={tasks}
                handleTask={handleTask}
-            />
+               />
             <TaskFavList
                tasks={tasks}
                handleToggle={handleToggle}
+               handleDelete={handleDelete}
+               handleFav={handleFav}
             />
          </TabPanels>
       </Tabs>
