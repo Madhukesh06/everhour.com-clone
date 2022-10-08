@@ -232,10 +232,11 @@ export default function TabsSidebar() {
                   p={4}
                   display={{ base: "block", lg: "none" }}
                   onClick={handleLogout}
+                  cursor={"printer"}
                >
                   <AiOutlineLogout
                      size={27}
-                     style={{ margin: "auto", color: "#ff5722" }}
+                     style={{ margin: "auto", color: "#ff5722", cursor: "pointer" }}
                   />
                </Box>
             </TabList>

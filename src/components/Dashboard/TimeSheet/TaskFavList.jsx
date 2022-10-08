@@ -1,11 +1,18 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, TabPanel } from "@chakra-ui/react";
+import {
+   Accordion,
+   AccordionButton,
+   AccordionIcon,
+   AccordionItem,
+   AccordionPanel,
+   Box,
+   TabPanel,
+   VStack,
+} from "@chakra-ui/react";
+import Task from "./Task";
 
-function TaskFavList({ handleTask}) {
+function TaskFavList({ tasks, handleToggle }) {
    return (
       <TabPanel>
-         {/* <Flex w="100%">
-            <TaskInput handleTask={handleTask} />
-         </Flex> */}
          <Accordion defaultIndex={[0]} allowToggle>
             <AccordionItem>
                <h2>
@@ -22,8 +29,20 @@ function TaskFavList({ handleTask}) {
                      <AccordionIcon />
                   </AccordionButton>
                </h2>
-               <AccordionPanel pb={4}>
-                  
+               <AccordionPanel py={4}>
+                  <VStack
+                     border="1px solid #eaeaea"
+                     spacing={0}
+                     borderBottom="none"
+                  >
+                     {tasks.map((task) => (
+                        <>
+                           {!task.isCompleted && task.isFav && (
+                              <Task task={task} handleToggle={handleToggle} />
+                           )}
+                        </>
+                     ))}
+                  </VStack>
                </AccordionPanel>
             </AccordionItem>
             <AccordionItem>
@@ -41,8 +60,20 @@ function TaskFavList({ handleTask}) {
                      <AccordionIcon />
                   </AccordionButton>
                </h2>
-               <AccordionPanel pb={4}>
-                  
+               <AccordionPanel py={4}>
+                  <VStack
+                     border="1px solid #eaeaea"
+                     spacing={0}
+                     borderBottom="none"
+                  >
+                     {tasks.map((task) => (
+                        <>
+                           {task.isCompleted && task.isFav && (
+                              <Task task={task} handleToggle={handleToggle} />
+                           )}
+                        </>
+                     ))}
+                  </VStack>
                </AccordionPanel>
             </AccordionItem>
          </Accordion>
