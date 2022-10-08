@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import Task from "./Task";
 
-function TaskFavList({ tasks, handleToggle }) {
+function TaskFavList({ tasks, handleToggle, handleDelete, handleFav }) {
    return (
       <TabPanel>
          <Accordion defaultIndex={[0]} allowToggle>
@@ -38,7 +38,7 @@ function TaskFavList({ tasks, handleToggle }) {
                      {tasks.map((task) => (
                         <>
                            {!task.isCompleted && task.isFav && (
-                              <Task task={task} handleToggle={handleToggle} />
+                              <Task task={task} handleToggle={handleToggle} handleDelete={handleDelete} handleFav={handleFav} />
                            )}
                         </>
                      ))}
@@ -69,7 +69,7 @@ function TaskFavList({ tasks, handleToggle }) {
                      {tasks.map((task) => (
                         <>
                            {task.isCompleted && task.isFav && (
-                              <Task task={task} handleToggle={handleToggle} />
+                              <Task task={task} handleToggle={handleToggle} handleDelete={handleDelete} handleFav={handleFav}/>
                            )}
                         </>
                      ))}
