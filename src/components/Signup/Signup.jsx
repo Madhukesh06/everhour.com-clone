@@ -64,7 +64,6 @@ export default function Signup() {
    useEffect(() => {
       if (creds.email !== "" && creds.password !== "") setIsEmpty(false);
       else setIsEmpty(true);
-      console.log(isEmpty);
    }, [creds]);
 
    return (

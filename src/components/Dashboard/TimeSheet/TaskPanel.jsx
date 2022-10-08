@@ -79,7 +79,7 @@ function TaskPanel({ dayArr, dateArr, dashArr, tasks, handleTask }) {
                            {/* Content */}
 
                            {tasks.map((task) => (
-                              <TaskTableList task={task} />
+                              <TaskTableList task={task.title} />
                            ))}
                         </Tbody>
                      </Table>
