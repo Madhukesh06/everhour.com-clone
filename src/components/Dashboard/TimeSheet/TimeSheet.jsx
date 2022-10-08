@@ -29,23 +29,20 @@ const TimeSheet = () => {
          title: task,
          isCompleted: false,
          isFav: false
-      } , "a@a.com").then((res) => {
+      } , everhourUser.email).then((res) => {
          setTasks(res.tasks)
       })
    };
    
-   const handleToggle = (task, setToggleLoading) => {
-      console.log(task, 'this is task')
-      setToggleLoading(true)
+   const handleToggle = (task) => {
       patchTasks( {
          ...task,
          isCompleted: !task.isCompleted
       } ,everhourUser.email).then((res) => {
          setTasks(res.tasks)
          console.log(tasks, 'patch')
-         setToggleLoading(false)
       })
-      .catch((e) => setToggleLoading(false))
+      
    }
 
    useEffect(() => {
