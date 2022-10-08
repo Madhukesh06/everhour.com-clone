@@ -11,3 +11,16 @@ export const patchApi = async (params, email) => {
 
     return response.data
 }
+
+
+export const patchTasks = async (params, email) => {
+    let response = await axios.patch(`https://everhour-backend-production.up.railway.app/users/tasks/${email}`, params)
+
+    return response.data
+}
+
+export const postTask = async (params, email) => {
+    let response = await axios.post(`https://everhour-backend-production.up.railway.app/users/tasks/${email}`, params)
+
+    return response.data
+}

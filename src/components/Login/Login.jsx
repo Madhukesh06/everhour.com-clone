@@ -41,7 +41,6 @@ export default function Login() {
 
    const handleSubmit = () => {
       dispatch(loginAction(creds)).then((res) => {
-         console.log(res);
          if (res) {
             toast({
                title: "Login successful",
@@ -67,7 +66,6 @@ export default function Login() {
    useEffect(() => {
       if (creds.email !== "" && creds.password !== "") setIsEmpty(false);
       else setIsEmpty(true);
-      console.log(isEmpty);
    }, [creds]);
 
    return (

@@ -1,7 +1,10 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, TabPanel } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Flex, TabPanel } from "@chakra-ui/react";
+import { useState } from "react";
 import TaskInput from "../TaskInput/TaskInput";
 
-function TaskList({handleTask}) {
+function TaskList({handleTask, tasks, handleToggle} ) {
+   const [toggleLoading, setToggleLoading] = useState(false)
+
    return (
       <TabPanel>
          <Flex w="100%">
@@ -24,7 +27,19 @@ function TaskList({handleTask}) {
                   </AccordionButton>
                </h2>
                <AccordionPanel pb={4}>
-                  
+                  {
+                     tasks.map((item) => (
+                        <>
+                         {!item.isCompleted && 
+                           <li>
+                              {item.title}
+                              <Button isLoading={toggleLoading} onClick={() => handleToggle(item, setToggleLoading)}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
+                              <span>Delete</span>
+                           </li>
+                           }
+                        </>
+                     ))
+                  }
                </AccordionPanel>
             </AccordionItem>
             <AccordionItem>
@@ -43,7 +58,20 @@ function TaskList({handleTask}) {
                   </AccordionButton>
                </h2>
                <AccordionPanel pb={4}>
-                  
+                  {
+                     tasks.map((item) => (
+                        <>
+                           {item.isCompleted && 
+                           <li>
+                              {item.title}
+                              <Button isLoading={toggleLoading} onClick={() => handleToggle(item)}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
+                              <span>Delete</span>
+                           </li>
+                           }
+                           
+                        </>
+                     ))
+                  }
                </AccordionPanel>
             </AccordionItem>
          </Accordion>
