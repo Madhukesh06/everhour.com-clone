@@ -33,7 +33,7 @@ function TaskList({handleTask, tasks, handleToggle} ) {
                          {!item.isCompleted && 
                            <li>
                               {item.title}
-                              <Button isLoading={toggleLoading} onClick={() => handleToggle(item, setToggleLoading)}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
+                              <Button isLoading={toggleLoading} onClick={() => handleToggle(item)}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
                               <span>Delete</span>
                            </li>
                            }
@@ -64,7 +64,13 @@ function TaskList({handleTask, tasks, handleToggle} ) {
                            {item.isCompleted && 
                            <li>
                               {item.title}
-                              <Button isLoading={toggleLoading} onClick={() => handleToggle(item)}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
+                              <Button isLoading={toggleLoading} onClick={() => {
+                                 setToggleLoading(true)
+                                 handleToggle(item)
+                                 setTimeout(() => {
+                                    setToggleLoading(false)
+                                 } , 700)
+                                 }}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
                               <span>Delete</span>
                            </li>
                            }
