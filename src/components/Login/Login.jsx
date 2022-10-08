@@ -9,9 +9,7 @@ import {
    Text,
    VStack,
    chakra,
-   Spacer,
    Image,
-   Stack,
    useToast,
    InputGroup,
    InputRightElement,
@@ -22,7 +20,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { loginAction } from "../../store/auth/auth.actions";
 import girl from "../../assets/girl.jpg";
-import { Navigate, useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 export default function Login() {
@@ -52,17 +50,17 @@ export default function Login() {
                duration: 3000,
                isClosable: true,
             });
+            navigate("/dashboard");
          }
          if (!res) {
             toast({
                title: "Invalid credential",
-               description: "Please try again with the wright information.",
+               description: "Please try again with the correct credential.",
                status: "error",
                duration: 3000,
                isClosable: true,
             });
          }
-         navigate("/dashboard");
       });
    };
 

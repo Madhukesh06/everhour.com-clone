@@ -4,13 +4,11 @@ import {
    FormControl,
    Input,
    InputGroup,
-   HStack,
    InputRightElement,
    Stack,
    Button,
    Heading,
    Text,
-   useColorModeValue,
    Image,
    useToast,
 } from "@chakra-ui/react";
@@ -18,7 +16,7 @@ import {
 import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { FcGoogle } from "react-icons/fc";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { registerAction } from "../../store/auth/auth.actions";
 import green from "../../assets/bg-element-oval.jpg";
 import { useNavigate } from "react-router-dom";
@@ -41,14 +39,25 @@ export default function Signup() {
    const toast = useToast();
    const handleSubmit = () => {
       dispatch(registerAction(creds)).then((res) => {
-         toast({
-            title: "Account Created",
-            description: "We've created account for you.",
-            status: "success",
-            duration: 3000,
-            isClosable: true,
-         });
-         navigate("/login");
+         if (res) {
+            toast({
+               title: "Account Created",
+               description: "We've created account for you.",
+               status: "success",
+               duration: 3000,
+               isClosable: true,
+            });
+            navigate("/login");
+         }
+         if (!res) {
+            toast({
+               title: "Signup Failed",
+               description: "User already exists, please try to login",
+               status: "error",
+               duration: 3000,
+               isClosable: true,
+            });
+         }
       });
    };
 

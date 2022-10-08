@@ -16,7 +16,7 @@ import {
    Tr,
 } from "@chakra-ui/react";
 import TaskInput from "../TaskInput/TaskInput";
-import TaskList from "./TaskList";
+import TaskTableList from "./TaskTableList";
 
 function TaskPanel({ dayArr, dateArr, dashArr, tasks, handleTask }) {
    return (
@@ -79,7 +79,7 @@ function TaskPanel({ dayArr, dateArr, dashArr, tasks, handleTask }) {
                            {/* Content */}
 
                            {tasks.map((task) => (
-                              <TaskList task={task} />
+                              <TaskTableList task={task} />
                            ))}
                         </Tbody>
                      </Table>

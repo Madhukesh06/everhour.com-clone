@@ -1,12 +1,11 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, TabPanel } from "@chakra-ui/react";
-import TaskInput from "../TaskInput/TaskInput";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, TabPanel } from "@chakra-ui/react";
 
-function TaskList({handleTask}) {
+function TaskFavList({ handleTask}) {
    return (
       <TabPanel>
-         <Flex w="100%">
+         {/* <Flex w="100%">
             <TaskInput handleTask={handleTask} />
-         </Flex>
+         </Flex> */}
          <Accordion defaultIndex={[0]} allowToggle>
             <AccordionItem>
                <h2>
@@ -51,4 +50,4 @@ function TaskList({handleTask}) {
    );
 }
 
-export default TaskList;
+export default TaskFavList;

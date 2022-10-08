@@ -1,28 +1,8 @@
-import {
-   Accordion,
-   AccordionButton,
-   AccordionIcon,
-   AccordionItem,
-   AccordionPanel,
-   Box,
-   Flex,
-   Text,
-   Table,
-   Thead,
-   Tbody,
-   Tr,
-   Th,
-   TableContainer,
-   Tabs,
-   TabList,
-   Tab,
-   TabPanels,
-   TabPanel,
-} from "@chakra-ui/react";
+import { Tabs, TabList, Tab, TabPanels } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import useTimeSheetHook from "../../../hooks/useTimeSheetHook";
-import TaskInput from "../TaskInput/TaskInput";
+import TaskFavList from "./TaskFavList";
 import TaskList from "./TaskList";
 import TaskPanel from "./TaskPanel";
 
@@ -50,6 +30,7 @@ const TimeSheet = () => {
 
    return (
       <Tabs
+         isLazy
          bg="white"
          p={4}
          mt={7}
@@ -60,9 +41,11 @@ const TimeSheet = () => {
          <TabList color="green">
             <Tab fontSize={20}>List</Tab>
             <Tab fontSize={20}>Timesheet</Tab>
+            <Tab fontSize={20}>Favourites</Tab>
          </TabList>
 
          <TabPanels>
+            <TaskList handleTask={handleTask} />
             <TaskPanel
                dayArr={dayArr}
                dateArr={dateArr}
@@ -70,13 +53,7 @@ const TimeSheet = () => {
                tasks={tasks}
                handleTask={handleTask}
             />
-            <TaskPanel
-               dayArr={dayArr}
-               dateArr={dateArr}
-               dashArr={dashArr}
-               tasks={tasks}
-               handleTask={handleTask}
-            />
+            <TaskFavList handleTask={handleTask} />
          </TabPanels>
       </Tabs>
    );
