@@ -1,10 +1,24 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Flex, TabPanel } from "@chakra-ui/react";
+import {
+   Accordion,
+   AccordionButton,
+   AccordionIcon,
+   AccordionItem,
+   AccordionPanel,
+   Box,
+   Button,
+   Flex,
+   Heading,
+   HStack,
+   StackDivider,
+   TabPanel,
+   Text,
+   VStack,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import TaskInput from "../TaskInput/TaskInput";
+import Task from "./Task";
 
-function TaskList({handleTask, tasks, handleToggle} ) {
-   const [toggleLoading, setToggleLoading] = useState(false)
-
+function TaskList({ tasks, handleTask, handleToggle }) {
    return (
       <TabPanel>
          <Flex w="100%">
@@ -26,20 +40,20 @@ function TaskList({handleTask, tasks, handleToggle} ) {
                      <AccordionIcon />
                   </AccordionButton>
                </h2>
-               <AccordionPanel pb={4}>
-                  {
-                     tasks.map((item) => (
+               <AccordionPanel py={4}>
+                  <VStack
+                     border="1px solid #eaeaea"
+                     spacing={0}
+                     borderBottom="none"
+                  >
+                     {tasks.map((task) => (
                         <>
-                         {!item.isCompleted && 
-                           <li>
-                              {item.title}
-                              <Button isLoading={toggleLoading} onClick={() => handleToggle(item)}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
-                              <span>Delete</span>
-                           </li>
-                           }
+                           {!task.isCompleted && (
+                              <Task task={task} handleToggle={handleToggle} />
+                           )}
                         </>
-                     ))
-                  }
+                     ))}
+                  </VStack>
                </AccordionPanel>
             </AccordionItem>
             <AccordionItem>
@@ -57,27 +71,20 @@ function TaskList({handleTask, tasks, handleToggle} ) {
                      <AccordionIcon />
                   </AccordionButton>
                </h2>
-               <AccordionPanel pb={4}>
-                  {
-                     tasks.map((item) => (
+               <AccordionPanel py={4}>
+                  <VStack
+                     border="1px solid #eaeaea"
+                     spacing={0}
+                     borderBottom="none"
+                  >
+                     {tasks.map((task) => (
                         <>
-                           {item.isCompleted && 
-                           <li>
-                              {item.title}
-                              <Button isLoading={toggleLoading} onClick={() => {
-                                 setToggleLoading(true)
-                                 handleToggle(item)
-                                 setTimeout(() => {
-                                    setToggleLoading(false)
-                                 } , 700)
-                                 }}>{item.isCompleted? "DONE" : "NOT DONE"}</Button>
-                              <span>Delete</span>
-                           </li>
-                           }
-                           
+                           {task.isCompleted && (
+                              <Task task={task} handleToggle={handleToggle} />
+                           )}
                         </>
-                     ))
-                  }
+                     ))}
+                  </VStack>
                </AccordionPanel>
             </AccordionItem>
          </Accordion>

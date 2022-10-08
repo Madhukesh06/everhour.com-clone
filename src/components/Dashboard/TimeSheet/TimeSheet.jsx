@@ -2,7 +2,12 @@ import { Tabs, TabList, Tab, TabPanels } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { getApi, patchApi, patchTasks, postTask } from "../../../hooks/Requests";
+import {
+   getApi,
+   patchApi,
+   patchTasks,
+   postTask,
+} from "../../../hooks/Requests";
 import useTimeSheetHook from "../../../hooks/useTimeSheetHook";
 import TaskFavList from "./TaskFavList";
 import TaskList from "./TaskList";
@@ -11,11 +16,10 @@ import TaskPanel from "./TaskPanel";
 const dayArray = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const dateArray = new Array(7).fill("");
 const dashArray = new Array(7).fill("-");
-const initTasks = ["Design", "Project Management", "Web Development"];
-
+// const initTasks = ["Design", "Project Management", "Web Development"];
 
 const TimeSheet = () => {
-   const everhourUser =  JSON.parse(localStorage.getItem("everhourUser"))
+   const everhourUser = JSON.parse(localStorage.getItem("everhourUser"));
    const { date, month, day } = useTimeSheetHook();
    const [dayArr, setDayArr] = useState(dayArray);
    const [dateArr, setDateArr] = useState(dateArray);
@@ -23,33 +27,36 @@ const TimeSheet = () => {
    const [tasks, setTasks] = useState([]);
 
    const handleTask = (task) => {
-      // setTasks([...tasks, task]);
-
-      postTask( {
-         title: task,
-         isCompleted: false,
-         isFav: false
-      } , everhourUser.email).then((res) => {
-         setTasks(res.tasks)
-      })
+      postTask(
+         {
+            title: task,
+            isCompleted: false,
+            isFav: false,
+         },
+         everhourUser.email
+      ).then((res) => {
+         setTasks(res.tasks);
+      });
    };
-   
+
    const handleToggle = (task) => {
-      patchTasks( {
-         ...task,
-         isCompleted: !task.isCompleted
-      } ,everhourUser.email).then((res) => {
-         setTasks(res.tasks)
-         console.log(tasks, 'patch')
-      })
-      
-   }
+      patchTasks(
+         {
+            ...task,
+            isCompleted: !task.isCompleted,
+         },
+         everhourUser.email
+      ).then((res) => {
+         setTasks(res.tasks);
+         console.log(tasks, "patch");
+      });
+   };
 
    useEffect(() => {
       let temp = dayArr.indexOf(day);
       dateArray[temp] = `${month} ${date}`;
       setDateArr(dateArray);
-      getApi(everhourUser.email).then((res)=> setTasks(res.tasks))
+      getApi(everhourUser.email).then((res) => setTasks(res.tasks));
    }, []);
 
    return (
@@ -71,9 +78,9 @@ const TimeSheet = () => {
          <TabPanels>
             <TaskList
                tasks={tasks}
-             handleTask={handleTask}
-             handleToggle={handleToggle}
-              />
+               handleTask={handleTask}
+               handleToggle={handleToggle}
+            />
             <TaskPanel
                dayArr={dayArr}
                dateArr={dateArr}
@@ -81,7 +88,10 @@ const TimeSheet = () => {
                tasks={tasks}
                handleTask={handleTask}
             />
-            <TaskFavList handleTask={handleTask} />
+            <TaskFavList
+               tasks={tasks}
+               handleToggle={handleToggle}
+            />
          </TabPanels>
       </Tabs>
    );

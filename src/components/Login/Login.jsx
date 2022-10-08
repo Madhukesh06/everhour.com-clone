@@ -180,22 +180,22 @@ export default function Login() {
                         </Button>
                      </InputRightElement>
                   </InputGroup>
+                  <Button
+                     w={"100%"}
+                     px={14}
+                     mt={7}
+                     size={"lg"}
+                     bg={"#57ba72"}
+                     color={"white"}
+                     _hover={{
+                        bg: "#24bd6a",
+                     }}
+                     disabled={isEmpty}
+                     onClick={handleSubmit}
+                  >
+                     Log In
+                  </Button>
                </FormControl>
-
-               <Button
-                  w={"100%"}
-                  px={14}
-                  size={"lg"}
-                  bg={"#57ba72"}
-                  color={"white"}
-                  _hover={{
-                     bg: "#24bd6a",
-                  }}
-                  disabled={isEmpty}
-                  onClick={handleSubmit}
-               >
-                  Log In
-               </Button>
 
                <Box>
                   <Link
