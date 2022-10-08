@@ -18,11 +18,6 @@ const useTimeSheetHook = () => {
   ];
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  setInterval(() => {
-    let curDate = new Date();
-    setTime(curDate);
-  }, 1000);
-
   let hours = time.getHours();
   let minutes = time.getMinutes();
   let seconds = time.getSeconds();

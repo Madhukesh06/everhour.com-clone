@@ -1,6 +1,5 @@
 import {
    Box,
-   Heading,
    Image,
    Tab,
    TabList,
@@ -18,16 +17,14 @@ import { HiOutlineIdentification } from "react-icons/hi";
 import { FiPieChart } from "react-icons/fi";
 import GettingStarted from "../Home/GettingStarted";
 import TimeSheet from "../TimeSheet/TimeSheet";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import BasicInformation from "../MyProfile/BasicInformation";
 import ProjectModal from "../MyProjects/ModalProject/ProjectModal";
 import Personal from "../MyProfile/Personal";
 import TopBar from "../TopBar/TopBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logoutAction } from "../../../store/auth/auth.actions";
-import useStartStop from "../../../hooks/useStartStop";
-import ButtonSec from "../TopBar/ButtonSec";
 
 export default function TabsSidebar() {
    const [tabIndex, setTabIndex] = useState(0);
