@@ -2,10 +2,9 @@ import { Box, Button, Heading, HStack } from "@chakra-ui/react";
 import { useState } from "react";
 
 function Task({ task, handleToggle, handleDelete, handleFav }) {
-   
    const [loading, setLoading] = useState(false);
    const [fav, setFav] = useState(false);
-   const [del, setDel] = useState(false)
+   const [del, setDel] = useState(false);
 
    return (
       <HStack
@@ -14,7 +13,7 @@ function Task({ task, handleToggle, handleDelete, handleFav }) {
          w={"100%"}
          borderBottom={"1px solid #eaeaea"}
          _hover={{
-            bg: "#eaeaea",
+            bg: "whitesmoke",
             cursor: "pointer",
          }}
       >
@@ -40,7 +39,7 @@ function Task({ task, handleToggle, handleDelete, handleFav }) {
                borderRadius={"sm"}
                letterSpacing={1}
                onClick={() => {
-                  handleFav(task, setFav)
+                  handleFav(task, setFav);
                }}
             >
                {task.isFav ? "Remove from Fav" : "Add to Fav"}
@@ -69,7 +68,7 @@ function Task({ task, handleToggle, handleDelete, handleFav }) {
                bg={"#fe5722"}
                color={"white"}
                onClick={() => {
-                  handleDelete(task, setDel)
+                  handleDelete(task, setDel);
                }}
                borderRadius={"sm"}
                letterSpacing={1}

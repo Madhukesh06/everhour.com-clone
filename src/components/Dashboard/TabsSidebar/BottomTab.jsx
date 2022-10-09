@@ -31,17 +31,19 @@ function BottomTab() {
                   pl={3}
                   bg="green.100"
                   color="green.700"
+                  fontFamily="Helvetica"
                   _hover={{
                      color: "gray",
                   }}
                >
-                  User Name
+                  myAccount
                </MenuButton>
                <MenuList w={"100%"} p={2} color="#444444">
                   <MenuItem
                      fontWeight="bold"
                      color="blackAlpha.700"
                      letterSpacing={0.5}
+                     fontFamily="Helvetica"
                   >
                      My Profile
                   </MenuItem>
@@ -49,7 +51,7 @@ function BottomTab() {
                      fontWeight="bold"
                      color="blackAlpha.700"
                      letterSpacing={0.5}
-                     onClick={() => alert("Kagebunshin")}
+                     fontFamily="Helvetica"
                   >
                      Integrations
                   </MenuItem>
@@ -57,6 +59,7 @@ function BottomTab() {
                      fontWeight="bold"
                      color="blackAlpha.700"
                      letterSpacing={0.5}
+                     fontFamily="Helvetica"
                   >
                      Billing
                   </MenuItem>
@@ -64,6 +67,7 @@ function BottomTab() {
                      fontWeight="bold"
                      color="blackAlpha.700"
                      letterSpacing={0.5}
+                     fontFamily="Helvetica"
                   >
                      Apps
                   </MenuItem>
@@ -78,6 +82,7 @@ function BottomTab() {
                      fontWeight="bold"
                      color="blackAlpha.700"
                      letterSpacing={0.5}
+                     fontFamily="Helvetica"
                   >
                      Help Docs
                   </MenuItem>
@@ -85,6 +90,7 @@ function BottomTab() {
                      fontWeight="bold"
                      color="tomato"
                      letterSpacing={0.5}
+                     fontFamily="Helvetica"
                      as={Button}
                      onClick={handleLogout}
                   >

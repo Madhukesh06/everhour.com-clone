@@ -18,7 +18,15 @@ import {
 import TaskInput from "../TaskInput/TaskInput";
 import TaskTableList from "./TaskTableList";
 
-function TaskPanel({ dayArr, dateArr, dashArr, tasks, handleTask }) {
+function TaskPanel({
+   dayArr,
+   dateArr,
+   dashArr,
+   tasks,
+   handleTask,
+   handleFav,
+   handleDelete,
+}) {
    return (
       <TabPanel>
          <Accordion defaultIndex={[0]} allowToggle>
@@ -79,7 +87,11 @@ function TaskPanel({ dayArr, dateArr, dashArr, tasks, handleTask }) {
                            {/* Content */}
 
                            {tasks.map((task) => (
-                              <TaskTableList task={task.title} />
+                              <TaskTableList
+                                 task={task}
+                                 handleDelete={handleDelete}
+                                 handleFav={handleFav}
+                              />
                            ))}
                         </Tbody>
                      </Table>

@@ -38,7 +38,12 @@ function TaskFavList({ tasks, handleToggle, handleDelete, handleFav }) {
                      {tasks.map((task) => (
                         <>
                            {!task.isCompleted && task.isFav && (
-                              <Task task={task} handleToggle={handleToggle} handleDelete={handleDelete} handleFav={handleFav} />
+                              <Task
+                                 task={task}
+                                 handleToggle={handleToggle}
+                                 handleDelete={handleDelete}
+                                 handleFav={handleFav}
+                              />
                            )}
                         </>
                      ))}
@@ -69,7 +74,12 @@ function TaskFavList({ tasks, handleToggle, handleDelete, handleFav }) {
                      {tasks.map((task) => (
                         <>
                            {task.isCompleted && task.isFav && (
-                              <Task task={task} handleToggle={handleToggle} handleDelete={handleDelete} handleFav={handleFav}/>
+                              <Task
+                                 task={task}
+                                 handleToggle={handleToggle}
+                                 handleDelete={handleDelete}
+                                 handleFav={handleFav}
+                              />
                            )}
                         </>
                      ))}
