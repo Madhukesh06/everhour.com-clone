@@ -84,7 +84,16 @@ function TaskTableList({ task, handleDelete, handleFav }) {
                   )}
                   {toShown && (
                      <Button
-                        onClick={() => handleDelete(task, setDel)}
+                        onClick={() => {
+                           handleDelete(task, setDel);
+                           toast({
+                              title: "Task Deleted Successfully",
+                              description: "",
+                              status: "error",
+                              duration: 2000,
+                              isClosable: true,
+                           });
+                        }}
                         size={"sm"}
                         variant={"ghost"}
                         _hover={{ bg: "transparent" }}
