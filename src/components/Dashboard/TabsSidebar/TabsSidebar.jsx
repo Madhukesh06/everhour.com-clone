@@ -236,7 +236,11 @@ export default function TabsSidebar() {
                >
                   <AiOutlineLogout
                      size={27}
-                     style={{ margin: "auto", color: "#ff5722", cursor: "pointer" }}
+                     style={{
+                        margin: "auto",
+                        color: "#ff5722",
+                        cursor: "pointer",
+                     }}
                   />
                </Box>
             </TabList>
@@ -264,11 +268,9 @@ export default function TabsSidebar() {
 
                <TabPanel>
                   <MyProjects />
-                  <ProjectModal />
                </TabPanel>
                <TabPanel>
                   <MyProjects />
-                  <ProjectModal />
                </TabPanel>
 
                <TabPanel>Under construction!</TabPanel>
