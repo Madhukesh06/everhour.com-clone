@@ -1,0 +1,26 @@
+.box {
+    /* border: 1px solid black; */
+    position: absolute;
+    border-top-left-radius: 0.1rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 300px;
+    background-color: #FFFFFF;
+    line-height: 2rem;
+    font-size: 1.1rem;
+    z-index: 2;
+   
+}
+
+/* .box::-webkit-scrollbar {
+    display: none;
+} */
+
+.box1:hover {
+    background: #a9e4c3;
+    cursor: pointer;
+}
+
+.input-color:focus{
+     border: 1px solid #3bdb81;
+}
