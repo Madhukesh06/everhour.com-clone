@@ -1,4 +1,4 @@
-import { Box, HStack, Text, Th, Tr, useToast } from "@chakra-ui/react";
+import { Box, Button, HStack, Text, Th, Tr, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { AiFillPlayCircle, AiOutlineStar } from "react-icons/ai";
 import { BsFillCircleFill, BsStopCircle } from "react-icons/bs";
@@ -6,16 +6,17 @@ import { MdDelete, MdFavorite } from "react-icons/md";
 
 const dashArray = new Array(7).fill("-");
 
-function TaskTableList({ task }) {
+function TaskTableList({ task, handleDelete, handleFav }) {
    const toast = useToast();
    const [play, setPlay] = useState(true);
    const [fav, setFav] = useState(false);
+   const [del, setDel] = useState(false);
    const [toShown, setToShown] = useState(false);
    const [dashArr, setDashArr] = useState(dashArray);
 
-   const handleFav = () => {
-      setFav(!fav);
-      if (!fav) {
+   const handleFavorite = () => {
+      handleFav(task, setFav);
+      if (!task.isFav) {
          toast({
             title: "Added To Favourites",
             description: "",
@@ -23,7 +24,8 @@ function TaskTableList({ task }) {
             duration: 2000,
             isClosable: true,
          });
-      } else {
+      }
+      if (task.isFav) {
          toast({
             title: "Removed From Favourites",
             description: "",
@@ -33,6 +35,8 @@ function TaskTableList({ task }) {
          });
       }
    };
+
+   useEffect(() => {}, [fav]);
 
    return (
       <>
@@ -45,25 +49,24 @@ function TaskTableList({ task }) {
                   <BsFillCircleFill color={"#24bd6a"} size={9} />
                   <Box>
                      <Text mb={1} fontWeight="600">
-                        {task}
+                        {task.title}
                      </Text>
                      <Text fontWeight="100">project zero</Text>
                   </Box>
                   {toShown && (
                      <>
-                        {fav ? (
-                           <MdFavorite
-                              size={20}
-                              onClick={handleFav}
-                              color={"24bd6a"}
-                           />
-                        ) : (
-                           <AiOutlineStar
-                              size={22}
-                              onClick={handleFav}
-                              color={"lightgray"}
-                           />
-                        )}
+                        <Button
+                           onClick={handleFavorite}
+                           size={"sm"}
+                           variant={"ghost"}
+                           _hover={{ bg: "transparent" }}
+                        >
+                           {task.isFav ? (
+                              <MdFavorite size={20} color={"24bd6a"} />
+                           ) : (
+                              <AiOutlineStar size={22} color={"lightgray"} />
+                           )}
+                        </Button>
                         {play ? (
                            <AiFillPlayCircle
                               size={20}
@@ -74,12 +77,21 @@ function TaskTableList({ task }) {
                            <BsStopCircle
                               size={20}
                               onClick={() => setPlay(true)}
-                              color={"#f44336"}
+                              color={"#fe5722"}
                            />
                         )}
                      </>
                   )}
-                  {toShown && <MdDelete size={19} color={"gray"} />}
+                  {toShown && (
+                     <Button
+                        onClick={() => handleDelete(task, setDel)}
+                        size={"sm"}
+                        variant={"ghost"}
+                        _hover={{ bg: "transparent" }}
+                     >
+                        <MdDelete size={19} color={"#fe5722"} />
+                     </Button>
+                  )}
                </HStack>
             </Th>
             {dashArr.map((item) => (

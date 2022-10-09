@@ -17,7 +17,6 @@ import TaskPanel from "./TaskPanel";
 const dayArray = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const dateArray = new Array(7).fill("");
 const dashArray = new Array(7).fill("-");
-// const initTasks = ["Design", "Project Management", "Web Development"];
 
 const TimeSheet = () => {
    const everhourUser = JSON.parse(localStorage.getItem("everhourUser"));
@@ -111,6 +110,8 @@ const TimeSheet = () => {
                dashArr={dashArr}
                tasks={tasks}
                handleTask={handleTask}
+               handleDelete={handleDelete}
+               handleFav={handleFav}
                />
             <TaskFavList
                tasks={tasks}
