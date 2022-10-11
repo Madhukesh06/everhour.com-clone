@@ -4,7 +4,6 @@ import ButtonSec from "./ButtonSec";
 
 import MidSec from "./MidSec";
 import TaskModal from "./TaskModal";
-import "./scroll.css";
 import { SearchIcon } from "@chakra-ui/icons";
 
 export default function TopBar({ handleTask }) {

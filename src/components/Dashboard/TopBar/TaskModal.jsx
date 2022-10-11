@@ -16,7 +16,6 @@ import {
    Tooltip,
 } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
-import "./scroll.css";
 
 export default function TaskModal({ handleTask }) {
    const { isOpen, onOpen, onClose } = useDisclosure();
