@@ -14,7 +14,6 @@ import {
    Text,
    VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import TaskInput from "../TaskInput/TaskInput";
 import Task from "./Task";
 
