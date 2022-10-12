@@ -87,11 +87,15 @@ function TaskPanel({
                            {/* Content */}
 
                            {tasks.map((task) => (
-                              <TaskTableList
-                                 task={task}
-                                 handleDelete={handleDelete}
-                                 handleFav={handleFav}
-                              />
+                              <>
+                                 {!task.isCompleted && (
+                                    <TaskTableList
+                                       task={task}
+                                       handleDelete={handleDelete}
+                                       handleFav={handleFav}
+                                    />
+                                 )}
+                              </>
                            ))}
                         </Tbody>
                      </Table>

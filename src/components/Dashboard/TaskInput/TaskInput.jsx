@@ -15,13 +15,11 @@ import {
    ModalOverlay,
    useDisclosure,
 } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
-import useTaskInput from "../../../hooks/useTaskInput";
+import { useRef, useState } from "react";
 
 function TaskInput({ handleTask }) {
    const { isOpen, onOpen, onClose } = useDisclosure();
    const initialRef = useRef(null);
-   const { addTask } = useTaskInput();
    const [input, setInput] = useState("");
 
    return (
@@ -84,7 +82,6 @@ function TaskInput({ handleTask }) {
                <ModalFooter color={"white"}>
                   <Button
                      onClick={() => {
-                        addTask(input);
                         handleTask(input);
                         setInput("");
                         onClose();
@@ -97,7 +94,6 @@ function TaskInput({ handleTask }) {
                   </Button>
                   <Button
                      onClick={() => {
-                        addTask(input);
                         handleTask(input);
                         setInput("");
                      }}

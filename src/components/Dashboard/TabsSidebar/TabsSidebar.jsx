@@ -20,16 +20,24 @@ import TimeSheet from "../TimeSheet/TimeSheet";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import BasicInformation from "../MyProfile/BasicInformation";
-import ProjectModal from "../MyProjects/ModalProject/ProjectModal";
 import Personal from "../MyProfile/Personal";
 import TopBar from "../TopBar/TopBar";
 import { useDispatch } from "react-redux";
 import { logoutAction } from "../../../store/auth/auth.actions";
+import useTask from "../../../hooks/useTask";
 
 export default function TabsSidebar() {
    const [tabIndex, setTabIndex] = useState(0);
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const {
+      tasks,
+      handleGet,
+      handleTask,
+      handleToggle,
+      handleFav,
+      handleDelete,
+   } = useTask();
 
    const handleLogout = () => {
       dispatch(logoutAction());
@@ -258,12 +266,26 @@ export default function TabsSidebar() {
                </TabPanel>
 
                <TabPanel>
-                  <TopBar />
-                  <TimeSheet />
+                  <TopBar handleTask={handleTask} />
+                  <TimeSheet
+                     tasks={tasks}
+                     handleGet={handleGet}
+                     handleTask={handleTask}
+                     handleToggle={handleToggle}
+                     handleFav={handleFav}
+                     handleDelete={handleDelete}
+                  />
                </TabPanel>
                <TabPanel>
-                  <TopBar />
-                  <TimeSheet />
+                  <TopBar handleTask={handleTask} />
+                  <TimeSheet
+                     tasks={tasks}
+                     handleGet={handleGet}
+                     handleTask={handleTask}
+                     handleToggle={handleToggle}
+                     handleFav={handleFav}
+                     handleDelete={handleDelete}
+                  />
                </TabPanel>
 
                <TabPanel>

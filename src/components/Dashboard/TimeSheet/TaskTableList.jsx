@@ -36,8 +36,6 @@ function TaskTableList({ task, handleDelete, handleFav }) {
       }
    };
 
-   useEffect(() => {}, [fav]);
-
    return (
       <>
          <Tr
@@ -56,6 +54,7 @@ function TaskTableList({ task, handleDelete, handleFav }) {
                   {toShown && (
                      <>
                         <Button
+                           isLoading={fav}
                            onClick={handleFavorite}
                            size={"sm"}
                            variant={"ghost"}
@@ -84,6 +83,7 @@ function TaskTableList({ task, handleDelete, handleFav }) {
                   )}
                   {toShown && (
                      <Button
+                        isLoading={del}
                         onClick={() => {
                            handleDelete(task, setDel);
                            toast({
