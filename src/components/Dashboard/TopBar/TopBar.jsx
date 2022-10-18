@@ -1,10 +1,11 @@
-import { Box, Flex, Icon, Input } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Input } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import ButtonSec from "./ButtonSec";
 
 import MidSec from "./MidSec";
 import TaskModal from "./TaskModal";
 import { SearchIcon } from "@chakra-ui/icons";
+import axios from "axios";
 
 export default function TopBar({ handleTask }) {
    const [text, setText] = useState("");
@@ -12,22 +13,35 @@ export default function TopBar({ handleTask }) {
    const inputRef = useRef();
 
    const handleInput = () => {
+      console.log(inputRef)
       // inputRef.value.reset();
    };
 
+   // const getData = async () => {
+   //    let url = `https://everhour-backend-production.up.railway.app/users/tasks/query/a@a.com?q=${inputRef.current.value}`
+   //    let response = await axios.get(url)
+   //    console.log(response.data,'this is getData', inputRef.current.value)
+   //    return response.data
+   // }
+
    const openTask = () => {};
 
-   const getTasks = () => {
-      setData([
-         { title: "Learn React" },
-         { title: "Learn JavaScript" },
-         { title: "Learn Redux" },
-         { title: "Learn Redux-Thunk" },
-      ]);
-   };
+   // const getTasks = () => {
+   //    setData([
+   //       { title: "Learn React" },
+   //       { title: "Learn JavaScript" },
+   //       { title: "Learn Redux" },
+   //       { title: "Learn Redux-Thunk" },
+   //    ]);
+   // };
 
    useEffect(() => {
-      getTasks();
+      const getTasks = setTimeout(() => {
+         let url = `https://everhour-backend-production.up.railway.app/users/tasks/query/a@a.com?q=${text}`
+         axios.get(url).then((res) => console.log(setData(res.data)))
+      }, 1500)
+
+      return () => clearTimeout(getTasks)
    }, [text]);
    return (
       <>
@@ -79,7 +93,7 @@ export default function TopBar({ handleTask }) {
                textAlign="left"
                w="80.5%"
                m="auto"
-               h={"250px"}
+               // h={"250px"}
                pos={"absolute"}
                zIndex={2}
                overflowY={"scroll"}
